@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head_title %}- {{ title }}{% endblock head_title %}
+
+{% block content %}
+  <div class="row">
+    <div class="col s12">
+      <h1>{{ title }}</h1>
+      <p>Gracias por su visita, vuelva pronto! </p>
+
+      <p><a class="btn waves-effect" href="{% url 'authentication:login' %}">Iniciar sesión de nuevo</a></p>
+    </div>
+  </div>
+{% endblock content %}

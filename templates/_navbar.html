@@ -1,0 +1,34 @@
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="{% url 'home_page' %}" class="brand-logo">{{ site.name }}</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+      <ul class="right">
+        <li><a href="http://google.com.pe/">Apuntes</a></li>
+      </ul>
+
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://google.com.pe/">Apuntes</a></li>
+        <li><a href="http://google.com.pe/">RPP</a></li>
+      </ul>
+
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="http://google.com.pe/">RPP</a></li>
+        <li><a href="http://google.com.pe/">RPP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav id="navbar-search-field" class="hide">
+    <div class="nav-wrapper">
+      <form method="get" action="">
+        <div class="input-field">
+          <input id="q" name="q"  type="search" placeholder="Buscar...">
+          <label for="q"><i class="material-icons">search</i></label>
+          <i id="navbar-search-field-close" class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+</div>
