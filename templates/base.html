@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tesis">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+  <title>{{ site.name }} {% block head_title %}{% endblock head_title %}</title>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- default css -->
+  <link href="{% static 'dist/css/main.min.css' %}" rel="stylesheet">
+  {% block stylesheets %}{% endblock stylesheets %}
+</head>
+<body>
+
+  {% block header %}
+    {% include '_navbar.html' %}
+  {% endblock header %}
+
+  <main class="container">
+    {% include '_messages.html' %}
+    {% block content %}{% endblock content %}
+  </main><!-- end .container -->
+
+  {% block footer %}
+    {% include '_footer.html' %}
+  {% endblock footer %}
+
+  {# Boton de subir, solo se muestra en resoluciones >= tablets #}
+  <div class="to-top hide-on-small-only"></div>
+
+  <!-- default js -->
+  <script src="{% static 'dist/js/main.min.js' %}"></script>
+  {% block scripts %}{% endblock scripts %}
+</body>
+</html>
