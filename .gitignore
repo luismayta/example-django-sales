@@ -1,5 +1,10 @@
+vendor/.env
+vendor
+.env
+*.sqlite3
 *.pyc
 __pycache__
 virtual
 db.sqlite3
 .DS_Store
+.idea
