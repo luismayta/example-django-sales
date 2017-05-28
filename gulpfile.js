@@ -162,5 +162,5 @@ gulp.task('dev', function(callback) {
 
 gulp.task('dist', ['clean'], function() {
   DEBUG = false;
-  gulp.start('compass', 'copy', 'scripts');
+  gulp.start('copy', 'scripts');
 });
