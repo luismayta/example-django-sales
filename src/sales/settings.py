@@ -41,15 +41,15 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
+THIRD_APPS = [
+    'rest_framework',
+]
+
 LOCAL_APPS = [
     'sales',
     'common',
     'customuser',
     'home',
-]
-
-THIRD_APPS = [
-    'rest_framework',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + LOCAL_APPS
