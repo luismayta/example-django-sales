@@ -13,6 +13,7 @@ WGET = wget
 ANSIBLE_PROVISION = $(shell) $(SCRIPT_DIR)/provision.sh
 ANSIBLE_DEPLOY = $(shell) $(SCRIPT_DIR)/deploy.sh
 CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
+CLEAN_MIGRATIONS = $(shell) $(SCRIPT_DIR)/clean_migrations.sh
 GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
 PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
 SETUP = $(shell) $(SCRIPT_DIR)/setup.sh
@@ -34,6 +35,10 @@ ansible_deploy:
 
 clean:
 	$(CLEAN)
+
+
+clean_migrations: clean
+	$(CLEAN_MIGRATIONS)
 
 
 deploy:
