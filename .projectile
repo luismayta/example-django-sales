@@ -6,4 +6,5 @@
 -/auto-save-list
 -*.cache
 -*.pyc
+-/node_modules
 -projectile-bookmarks.eld
