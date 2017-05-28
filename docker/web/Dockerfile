@@ -13,4 +13,4 @@ RUN apt-get update \
 WORKDIR /app/
 
 # install python dependencies
-RUN pip install -r /app/requirements/dev.txt
+RUN pip install -r /app/requirements/test.txt
