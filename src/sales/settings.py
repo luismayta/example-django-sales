@@ -43,9 +43,9 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     'sales',
-    'accounts',
+    'common',
+    'customuser',
     'home',
-    'authentication',
 ]
 
 THIRD_APPS = [
@@ -55,13 +55,14 @@ THIRD_APPS = [
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 ROOT_URLCONF = 'sales.urls'
@@ -92,10 +93,6 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DB_DEFAULT_URL')),
 }
 
-# User
-AUTH_USER_MODEL = 'accounts.User'
-AUTH_REGISTER_EXPIRE_DAYS = os.environ.get('AUTH_REGISTER_EXPIRE_DAYS', 1)
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -115,8 +112,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'sales.pagination.CustomCoursePaginator',
     'PAGE_SIZE': 100,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
 }
 
 # Internationalization
@@ -132,33 +133,37 @@ USE_L10N = True
 
 USE_TZ = True
 
-# AUTH
-
-# both|email|username
-#
-AUTHENTICATION_TYPE = 'email'
-
-# https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
-AUTHENTICATION_BACKENDS = (
-    'apps.authentication.backends.EmailOrUsernameModelBackend',
-)
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = os.path.join(BASE_DIR,"media")
-
+STATIC_ROOT = os.getenv(
+    'STATIC_ROOT',
+    os.path.join(BASE_DIR, 'staticfiles')
+)
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'assets'),
+)
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+# Media files.
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_ROOT = os.getenv(
+    'MEDIA_ROOT',
+    os.path.join(BASE_DIR, 'media')
+)
+
+# Custom User Model.
+AUTH_USER_MODEL = 'customuser.MyUser'
+AUTH_REGISTER_EXPIRE_DAYS = os.environ.get('AUTH_REGISTER_EXPIRE_DAYS', 1)
+
+AUTHENTICATION_BACKENDS = (
+    'customuser.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
