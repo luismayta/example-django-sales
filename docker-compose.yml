@@ -12,8 +12,8 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=drf
-      - POSTGRES_TEST_DB=drf_test
+      - POSTGRES_DB=sales
+      - POSTGRES_TEST_DB=sales_test
       - POSTGRES_TEST_USER=postgres
       - POSTGRES_TEST_PASSWORD=postgres
     env_file: .env
@@ -38,10 +38,10 @@ services:
     volumes:
       - ./:/app
     environment: &environment
-      - DB_DEFAULT_URL=postgres://postgres:postgres@db:5432/drf
-      - DB_TEST_URL=postgres://postgres:postgres@db:5432/drf_test
+      - DB_DEFAULT_URL=postgres://postgres:postgres@db:5432/sales
+      - DB_TEST_URL=postgres://postgres:postgres@db:5432/sales_test
       - C_FORCE_ROOT=True
-      - SITE_NAME=drf
+      - SITE_NAME=sales
       - IS_SECURE=True
       - DEBUG=True
       - SECRET_KEY=j36%5df7q5+ov)wz+(=vt7d81ka^xx!5%0)nx=z2i&)*5r^
@@ -51,4 +51,4 @@ services:
 volumes:
   pgvolume:
     external:
-      name: drf_pgvolume
+      name: sales_pgvolume
