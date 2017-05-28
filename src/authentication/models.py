@@ -1,9 +1,8 @@
+from django.conf import settings
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.crypto import get_random_string
-
-from . import conf as authentication_conf
 
 
 class RegisterUser(models.Model):
@@ -53,6 +52,6 @@ class RegisterUser(models.Model):
     @staticmethod
     def delete_expired_registers():
         """Elimina usuarios expirados."""
-        days = authentication_conf.AUTH_REGISTER_EXPIRE_DAYS
+        days = settings.AUTH_REGISTER_EXPIRE_DAYS
         diff = timezone.now() - timezone.timedelta(days=days)
         RegisterUser.objects.filter(date_joined__lt=diff).delete()
