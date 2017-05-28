@@ -94,6 +94,7 @@ DATABASES = {
 
 # User
 AUTH_USER_MODEL = 'accounts.User'
+AUTH_REGISTER_EXPIRE_DAYS = os.environ.get('AUTH_REGISTER_EXPIRE_DAYS', 1)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
