@@ -18,9 +18,19 @@ services:
       - POSTGRES_TEST_PASSWORD=postgres
     env_file: .env
     volumes:
-      - pgvolume:/var/lib/postgresql/data #using the declared volume
+      - sales-db:/var/lib/postgresql/data #using the declared volume
     ports:
       - "5432:5432"
+
+  nodejs:
+    restart: always
+    image: dgnest/node:6.10.0
+    volumes:
+      - .:/app
+    env_file: .env
+    build:
+      context: .
+      dockerfile: docker/nodejs/Dockerfile
 
   # Django web application
   web:
@@ -49,6 +59,6 @@ services:
     env_file: .env
 
 volumes:
-  pgvolume:
+  sales-db:
     external:
-      name: sales_pgvolume
+      name: sales-volume-postgre
