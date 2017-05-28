@@ -29,8 +29,6 @@ urlpatterns = [
 
     # /home/*
     url(r'^home/', include('home.urls')),
-    # /auth/*
-    url(r'^auth/', include('authentication.urls')),
     # /accounts/*
     url(r'^accounts/', include('accounts.urls')),
     url(r'^admin/', admin.site.urls),
