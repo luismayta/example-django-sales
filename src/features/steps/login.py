@@ -18,3 +18,15 @@ def the_user_with_and_password(context, email, password):
     )
 
     assert_that(response, not_none)
+
+
+@given(u'Login with "{email}" and "{password}"')
+def login_with_email_password(context, email, password):
+    client = APIClient()
+    response = client.login(
+        username=email,
+        password=password
+    )
+    assert_that(response, not_none)
+
+    context.client = client
