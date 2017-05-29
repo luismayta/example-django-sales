@@ -47,6 +47,7 @@ THIRD_APPS = [
 
 LOCAL_APPS = [
     'sales',
+    'core',
     'common',
     'customuser',
     'home',
