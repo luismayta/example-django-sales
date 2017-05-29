@@ -27,13 +27,12 @@ class LoginView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         form = self.form(data=request.POST, request=request)
-        if form.is_valid():
+        if form.is_valid() and form.user is not None:
             user = form.user
             login(request, user)
             next_url = request.POST.get('next')
             if next_url:
                 return HttpResponseRedirect(next_url)
-            # If the user has only one company redirects to it.
             return redirect('home_app:home')
         # Get the form with its errors and go to get method to let it decide the
         # template.
