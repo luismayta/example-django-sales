@@ -6,9 +6,12 @@ COPY package.json /app/package.json
 
 WORKDIR /app
 
-RUN npm install \
+RUN cd /app/ \
+    && npm install \
     && bundle install \
     && npm install --global gulp \
     && npm install --global gulp-cli
+
+COPY . /app
 
 CMD ["gulp"]
