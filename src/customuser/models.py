@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from common.models import CommonModel
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
+                                        PermissionsMixin)
 from django.db import models, transaction
 from django.utils import timezone
 from model_utils import Choices
@@ -16,17 +17,49 @@ class MyUserManager(BaseUserManager):
     def disabled_expired_users(self, send_emails=False):
         pass
 
-    def _create_user(self, email, password, is_staff, is_superuser,
-                     **extra_fields):
-        pass
+    def create_user(self, email, username, first_name, last_name, password,
+                    *args, **kwargs):
+        if not first_name:
+            raise ValueError('Users must have a first name')
+        if not last_name:
+            raise ValueError('Users must have a last name')
+        if not email:
+            raise ValueError('Users must have an email address')
+        if not username:
+            raise ValueError('Users must have an username')
 
-    def create_user(self, email, username=None, password=None, **extra_fields):
-        return self._create_user(email, password, False, False,
-                                 **extra_fields)
+        user = self.model(
+            username=username,
+            email=self.normalize_email(email),
+            first_name=first_name.title(),
+            last_name=last_name.title(),
+        )
+
+        user.set_password(password)
+        user.save()
+        return user
+
+    def create_superuser(self, email, username, first_name, last_name,
+                         password):
+        user = self.create_user(
+            email=email,
+            username=username,
+            password=password,
+            first_name=first_name.title(),
+            last_name=last_name.title(),
+        )
+        user.is_admin = True
+        user.is_active = True
+        user.is_superuser = True
+        user.save()
+        return user
 
 
-class MyUser(AbstractBaseUser,
-             CommonModel):
+class MyUserQuerySet(models.QuerySet):
+    pass
+
+
+class MyUser(AbstractBaseUser, PermissionsMixin, CommonModel):
 
     # Personal Information.
     email = models.EmailField(
