@@ -1,5 +1,0 @@
-{{ username }} gracias por registrarte en {{ site_name }}
-
-Registro de Cuenta exitoso, por favor, debera darle click para poder validar su Cuenta y usar nuestros servicios.
-
-{{ url_validate_token }}
