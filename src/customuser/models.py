@@ -61,7 +61,10 @@ class MyUserQuerySet(models.QuerySet):
 
 class MyUser(AbstractBaseUser, PermissionsMixin, CommonModel):
 
-    # Personal Information.
+    username = models.CharField(
+        max_length=100,
+        unique=True,
+    )
     email = models.EmailField(
         verbose_name='email address',
         max_length=100,

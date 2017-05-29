@@ -72,7 +72,7 @@ class SignupView(TemplateView):
         if form.is_valid():
             user = form.save()
             # Logging the user.
-            username = form.cleaned_data.get('email')
+            username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             logged_user = authenticate(username=username, password=password)
             if logged_user is not None:
