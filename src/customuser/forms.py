@@ -88,9 +88,9 @@ class UserLoginForm(forms.Form):
 
     """A form to login users by username or email."""
 
-    email = forms.CharField(
+    username = forms.CharField(
         max_length=100,
-    )
+    )  # Could be an email or username.
     password = forms.CharField(
         max_length=128,
         widget=forms.PasswordInput,
@@ -109,27 +109,29 @@ class UserLoginForm(forms.Form):
         self.request = kwargs.pop('request', None)
         super(UserLoginForm, self).__init__(*args, **kwargs)
 
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if not email:
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if not username:
             raise forms.ValidationError(
                 self.error_messages['incorrect_login']
             )
-        if MyUser.objects.filter(email=email).exists():
-            return email
+        username = username.lower()
+        if MyUser.objects.filter(username=username).exists() or \
+                MyUser.objects.filter(email=username).exists():
+            return username
         raise forms.ValidationError(
             self.error_messages['incorrect_login']
         )
 
     def clean(self):
-        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
-        if not email:
+        if not username:
             raise forms.ValidationError(
                 self.error_messages['incorrect_login']
             )
         user = authenticate(
-            username=email,
+            username=username,
             password=password,
         )
         if not user:
