@@ -1,9 +1,9 @@
 import json
+from test.drf import APIClient
 from test.tools import del_key_by_value, normalize_data
 
 from behave import then
 from hamcrest import assert_that, not_none
-from rest_framework.test import APIClient
 
 
 def factory_method_request(context, method, items, resource):
