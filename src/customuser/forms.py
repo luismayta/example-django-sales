@@ -129,7 +129,7 @@ class UserLoginForm(forms.Form):
                 self.error_messages['incorrect_login']
             )
         user = authenticate(
-            email=email,
+            username=email,
             password=password,
         )
         if not user:
