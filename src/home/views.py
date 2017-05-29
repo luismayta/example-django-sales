@@ -10,12 +10,9 @@ from django.views.generic.base import TemplateView, View
 class HomeView(TemplateView):
 
     template_name = 'home/home.html'
-    template_main = 'home/index.html'
 
     def get(self, request, *args, **kwargs):
         template = self.template_name
-        if request.user.is_authenticated:
-            template = self.template_main
         ctx = {
             'form': kwargs.get('form'),
             'next': request.GET.get('next')
@@ -74,7 +71,7 @@ class SignupView(TemplateView):
     def post(self, request, *args, **kwargs):
         form = UserSignupForm(data=request.POST)
         if form.is_valid():
-            # user = form.save()
+            user = form.save()
             # Logging the user.
             username = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
