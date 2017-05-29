@@ -90,7 +90,7 @@ class UserLoginForm(forms.Form):
 
     email = forms.CharField(
         max_length=100,
-    )  # Could be an email or username.
+    )
     password = forms.CharField(
         max_length=128,
         widget=forms.PasswordInput,
@@ -124,8 +124,12 @@ class UserLoginForm(forms.Form):
     def clean(self):
         email = self.cleaned_data.get('email')
         password = self.cleaned_data.get('password')
+        if not email:
+            raise forms.ValidationError(
+                self.error_messages['incorrect_login']
+            )
         user = authenticate(
-            username=email,
+            email=email,
             password=password,
         )
         if not user:
