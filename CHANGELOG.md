@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This file uses change log convention from [Keep a CHANGELOG](http://keepachangelog.com).
 
-## [Unreleased][unreleased]
+## [Unreleased]
 
 
 [unreleased]: https://bitbucket.org/devdiana/sales/compare/0.0.1...HEAD
