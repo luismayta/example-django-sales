@@ -7,11 +7,10 @@ BIN_DIR = $(ROOT_DIR)/bin
 DATA_DIR = $(ROOT_DIR)/var
 SCRIPT_DIR = $(ROOT_DIR)/script
 
-WGET = wget
-
 # Bin scripts
 ANSIBLE_PROVISION = $(shell) $(SCRIPT_DIR)/provision.sh
 ANSIBLE_DEPLOY = $(shell) $(SCRIPT_DIR)/deploy.sh
+BEHAVE = $(shell) $(SCRIPT_DIR)/behave.sh
 CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
 CLEAN_MIGRATIONS = $(shell) $(SCRIPT_DIR)/clean_migrations.sh
 GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
@@ -31,6 +30,14 @@ ansible_provision:
 
 ansible_deploy:
 	$(ANSIBLE_DEPLOY)
+
+
+behave:
+	echo "${tag}"
+	@if [ "${tag}" == '' ]; then \
+		echo "Error: Variables not set correctly"; exit 2; \
+	fi
+	$(BEHAVE) "${tag}"
 
 
 clean:
