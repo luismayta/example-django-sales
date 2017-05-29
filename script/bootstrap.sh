@@ -19,3 +19,6 @@ export RESOURCES_DB_DIR="$RESOURCES_DIR/db"
 export PROVISION_DIR="$ROOT_DIR/provision/ansible"
 export SOURCE_DIR="${ROOT_DIR}/src/"
 export REQUIREMENTS_DIR="${SOURCE_DIR}/requirements/"
+
+export DJANGO_SETTINGS=$PROJECT_NAME.settings
+export DJANGO_SETTINGS_TEST=$PROJECT_NAME.settings_test
