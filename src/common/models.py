@@ -24,11 +24,9 @@ class CommonModel(TimeStampedModel):
     """
     Common abstract base class.
     """
-
-    name = models.CharField(max_length=300)
     is_active = models.BooleanField(default=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
