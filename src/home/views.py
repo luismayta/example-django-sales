@@ -1,5 +1,6 @@
-from django.views import generic
+from django.views.generic.base import TemplateView
 
 
-class IndexView(generic.TemplateView):
+class HomeView(TemplateView):
+
     template_name = 'home/index.html'

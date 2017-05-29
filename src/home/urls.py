@@ -1,14 +1,7 @@
 from django.conf.urls import url
 
-from . import views
-
-app_name = 'home'
+from .views import HomeView
 
 urlpatterns = [
-    # /home/
-    url(
-        regex=r'^$',
-        view=views.IndexView.as_view(),
-        name='index'
-    ),
+    url(r'^$', HomeView.as_view(), name='home'),
 ]
