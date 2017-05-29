@@ -80,8 +80,7 @@ class MyUser(AbstractBaseUser,
         'last_name',
     ]
 
-    def __unicode__(self):
-        """ return info class."""
+    def __str__(self):
         return self.email
 
     @transaction.atomic
@@ -90,3 +89,4 @@ class MyUser(AbstractBaseUser,
 
     class Meta:
         db_table = 'myuser'
+        ordering = ['-created']
