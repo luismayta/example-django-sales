@@ -47,6 +47,7 @@ THIRD_APPS = [
 
 LOCAL_APPS = [
     'sales',
+    'core',
     'common',
     'customuser',
     'home',
@@ -111,13 +112,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Page Size.
+PAGE_SIZE = ast.literal_eval(os.environ.get('PAGE_SIZE', '10'))
+
+# DRF API configuration.
+
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 100,
+    'DEFAULT_MODEL_SERIALIZER_CLASS':
+    'rest_framework.serializers.HyperlinkedModelSerializer',
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
+    'DEFAULT_PAGINATION_CLASS':
+    'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': PAGE_SIZE,
 }
 
 # Internationalization
