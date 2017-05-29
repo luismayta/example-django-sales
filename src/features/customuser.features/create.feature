@@ -9,4 +9,4 @@ Feature: Proccess of user
     Then "post" the "user" to the resource "users":
     And the response of "user" must be:
       | status_code |
-      |         200 |
+      |         201 |
