@@ -3,6 +3,7 @@ from test.tools import del_key_by_value, normalize_data
 
 from behave import then
 from hamcrest import assert_that, not_none
+from rest_framework.test import APIClient
 
 
 def factory_method_request(context, method, items, resource):
@@ -109,8 +110,11 @@ def method_the_var_with_resource(context, method, var, resource):
     response_list = list()
     if hasattr(context, var):
         items = getattr(context, var)
-
     extra['format'] = 'json'
+
+    # Fixmee: change to decorator
+    if not hasattr(context, 'client'):
+        context.client = APIClient()
 
     if not isinstance(items, (list, tuple)):
         items = [items, ]
