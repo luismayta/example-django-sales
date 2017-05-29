@@ -16,7 +16,7 @@ class TestCaseMixin(object):
         Also checks South settings to ensure migrations are not implemented.
         """
 
-        if 'test_' not in settings.DATABASES['default']['NAME']:
+        if 'test' not in settings.DATABASES['default']['NAME']:
             raise CommandError('You must run with a test database')
 
     @classmethod
