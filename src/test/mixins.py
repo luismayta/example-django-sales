@@ -45,3 +45,54 @@ class TestCaseMixin(object):
                          interactive=False,
                          migrate_all=True,
                          verbosity=0)
+
+
+class RequestFactoryMixin(object):
+
+    def _parse_url(self, url):
+        return '/api/{0}/'.format(
+            url,
+        )
+
+    def get(self, path, data=None, **extra):
+        if data is None:
+            data = dict()
+
+        path = self._parse_url(url=path)
+
+        return super(RequestFactoryMixin, self).get(path, data, **extra)
+
+    def post(self, path, data=None, **extra):
+        if data is None:
+            data = dict()
+
+        path = self._parse_url(url=path)
+        return super(RequestFactoryMixin, self).post(path, data, **extra)
+
+    def patch(self, path, data=None, **extra):
+        if data is None:
+            data = dict()
+
+        path = self._parse_url(url=path)
+        return super(RequestFactoryMixin, self).patch(
+            path,
+            data,
+            **extra
+        )
+
+    def put(self, path, data=None, **extra):
+        if data is None:
+            data = dict()
+
+        path = self._parse_url(url=path)
+        return super(RequestFactoryMixin, self).put(path, data, **extra)
+
+    def delete(self, path, data='', content_type='application/octet-stream',
+               **extra):
+
+        path = self._parse_url(url=path)
+        return super(RequestFactoryMixin, self).delete(
+            path,
+            data,
+            **extra
+        )

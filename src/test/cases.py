@@ -1,5 +1,5 @@
+from test.drf import APIClient
 from test.mixins import TestCaseMixin
-from rest_framework.test import APIClient
 
 
 class TestCase(TestCaseMixin):
