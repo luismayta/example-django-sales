@@ -8,8 +8,9 @@ from .models import MyUser
 class MyUserAdmin(UserAdmin):
 
     list_display = (
-        'email',
         'id',
+        'username',
+        'email',
         'first_name',
         'last_name',
         'is_active',
