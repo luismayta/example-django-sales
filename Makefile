@@ -33,11 +33,11 @@ ansible_deploy:
 
 
 behave:
-	echo "${tag}"
-	@if [ "${tag}" == '' ]; then \
+	echo "${tags}"
+	@if [ "${tags}" == '' ]; then \
 		echo "Error: Variables not set correctly"; exit 2; \
 	fi
-	$(BEHAVE) "${tag}"
+	$(BEHAVE) "${tags}"
 
 
 clean:
