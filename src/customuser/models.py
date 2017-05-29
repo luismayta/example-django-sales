@@ -67,8 +67,10 @@ class MyUser(AbstractBaseUser,
     is_active = models.BooleanField(default=True)
 
     date_joined = models.DateTimeField(
+        blank=True,
+        null=True,
         verbose_name='date joined',
-        default=timezone.now
+        default=timezone.now,
     )
 
     # Object Manager.
