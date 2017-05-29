@@ -13,11 +13,8 @@ class MyUserSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = MyUser
-
+        fields = '__all__'
         read_only_fields = (
             'is_active',
             'created',
         )
-        extra_kwargs = {
-            'password': {'write_only': True},
-        }
