@@ -101,6 +101,17 @@ class MyUser(AbstractBaseUser, PermissionsMixin, CommonModel):
     )
 
     is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False)
+
+    def get_full_name(self):
+        return ' '.join([self.first_name, self.last_name])
+
+    def get_short_name(self):
+        return self.username
+
+    @property
+    def is_staff(self):
+        return self.is_admin
 
     date_joined = models.DateTimeField(
         blank=True,
@@ -112,8 +123,9 @@ class MyUser(AbstractBaseUser, PermissionsMixin, CommonModel):
     # Object Manager.
     objects = MyUserManager()
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = [
+        'email',
         'first_name',
         'last_name',
     ]
