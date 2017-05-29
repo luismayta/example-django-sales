@@ -17,9 +17,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from home.views import IndexView
 
-# from rest_framework import routers
+from rest_framework import routers
 
-# router = routers.DefaultRouter()
+router = routers.DefaultRouter()
 
 urlpatterns = [
     ##################################################
@@ -33,5 +33,5 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls')),
     url(r'^admin/', admin.site.urls),
     # Browsable API.
-    # url(r'^api/', include(router.urls)),
+    url(r'^api/', include(router.urls)),
 ]
