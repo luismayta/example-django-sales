@@ -1,0 +1,140 @@
+.app.app-rtl{
+    
+    /* NAVIGATION */
+    .app-navigation{        
+        .app-navigation-logo{
+            background: url(../img/logo-rtl.png) right top no-repeat @app-navigation-logo-background;
+        }
+        
+        nav{        
+            ul{                        
+                > li{                
+                    &.openable{
+                        > a:after{                        
+                            content: "\e874";
+                            right: auto;
+                            left: 0px;
+                            padding: 10px;
+                        }      
+                        
+                        > a{
+                            span.label{
+                                left: 40px;
+                            }
+                        }
+                    }                                        
+                }
+            }
+
+            > ul{
+                > li{                                
+                    a{
+                        text-align: right;
+                        padding: 10px 15px 10px 30px;                    
+
+                        span{
+                            float: right;
+                            margin: 0px 0px 0px 15px;                        
+                        }
+                        
+                        span.label{
+                            margin: 0px;
+                            right: auto;
+                            left: 10px;                            
+                        }
+                    }
+
+                    ul{                                        
+                        > li{                                                
+                            > a{                            
+                                padding-right: 30px;                            
+                            }
+
+                            ul{
+                                > li > a{
+                                    padding-right: 45px;
+                                }
+                            }                                                
+                        }
+                    }
+                    
+                    &.title{
+                        text-align: right;                        
+                        padding: 20px 15px 10px 0px;
+                    }
+                }
+            }
+        }
+
+        &.app-navigation-minimized{
+            
+            .app-navigation-logo{
+                background-image: url(../img/logo-sm.png);
+            }
+            
+            nav{    
+                
+                > ul{
+                    > li{
+                        > a{                        
+                            padding: 10px !important;                            
+                            
+                            span{
+                                float: right;
+                                margin-left: 0px;
+                                margin-top: 0px;
+                                text-align: center;
+                            }                    
+                        
+                        }
+                    }
+                }
+                
+                ul{
+                    > li{                 
+                        > a{
+                            padding-right: 15px;
+                        }
+                        
+                        &.openable{
+                            > a:after{content: "\e93c";}
+                        }
+
+                        &.open{
+                            > a:after{content: "\e93b";}
+                        }
+                    }
+                }                        
+            }
+        }
+    }
+    /* END NAVIGATION */
+    
+    
+    /* HEADING */
+    .app-heading{
+        .icon{
+            float: right;
+            margin-right: 0px;
+            margin-left: 15px;
+        }
+        .title{
+            float: right;
+            text-align: right;
+        }
+        .heading-elements{
+            float: left;
+        }
+    }
+    /* END HEADING */
+    
+    /* BREADCRUMB */
+    .breadcrumb{
+        float: right;
+        
+        > li + li:before{
+            content: "\f104";
+        }
+    }
+    /* END BREADCRUMB */
+}

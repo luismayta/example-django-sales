@@ -1,0 +1,25 @@
+.app-loading{
+    position: fixed; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%; 
+    height: 5px; 
+    background: rgba(0,0,0,0.2); 
+    z-index: 1001; 
+    .box-shadow(0px 1px 2px rgba(0,0,0,0.3));        
+    
+    .app-loading-progress{
+        background: #FFF; 
+        display: block; 
+        float: left; 
+        height: 5px;
+        
+        &.app-loading-primary{background: @app-design-primary-bg;}
+        &.app-loading-warning{background: @app-design-warning-bg;}
+        &.app-loading-success{background: @app-design-success-bg;}
+        &.app-loading-info{background: @app-design-info-bg;}
+        &.app-loading-danger{background: @app-design-danger-bg;}
+    }             
+    
+    &.bottom{top: auto; bottom: 0px;}
+}

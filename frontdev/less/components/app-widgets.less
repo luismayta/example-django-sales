@@ -1,0 +1,280 @@
+@app-widget-tile-bg: #FFF;
+@app-widget-tile-color: @app-layout-base-font-color-heading;
+@app-widget-tile-border: @app-desing-border-color;
+
+@app-widget-button-bg: #FFF;
+@app-widget-button-bg-hover: #F5F5F5;
+@app-widget-button-border: @app-desing-border-color;
+@app-widget-button-color: @app-layout-base-font-color-heading;
+
+
+.app{
+    
+    // widget button
+    
+    .app-widget-button-build-style(@name,@bg,@color){
+        &.@{name}{
+            background: @bg;
+            color: @color;
+            border-color: darken(@bg,3%);
+            
+            &:hover{
+                background: darken(@bg,5%);
+            }
+            &.app-widget-button-ghost{
+                .box-shadow(0px 0px 0px 3px fade(@bg,30%));
+            }
+            &.app-widget-button-bordered:before{
+                border-color: fade(@bg,50%);
+                .border-radius(6px);
+            }
+        }
+    }
+    
+    .app-widget-button{
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        color: @app-widget-button-color;
+        background: @app-widget-button-bg;
+        border: 1px solid @app-desing-border-color;
+        .border-radius(3px);    
+        margin: 0px 5px 10px 0px;
+        .transition(background @app-default-transition-speed linear);
+        
+        .fa{font-size: 28px; line-height: 37px;}
+        [class^='icon-']{font-size: 20px; line-height: 37px;}
+        
+        &:hover{
+            background: @app-widget-button-bg-hover;
+        }
+        
+        &.app-widget-button-bordered{
+            &:before{
+                content: " ";
+                position: absolute;
+                left: -4px;
+                top: -4px;
+                width: 46px;
+                height: 46px;
+                border: 1px dashed @app-desing-border-color;
+                .border-radius(3px);
+            }
+        }                
+        
+        &.app-widget-button-lg{
+            width: 80px;
+            height: 80px;
+            .border-radius();
+            
+            .fa{font-size: 42px; line-height: 80px;}
+            [class^='icon-']{font-size: 40px; line-height: 80px;}
+            
+            &.app-widget-button-bordered{
+                &:before{
+                    width: 86px;
+                    height: 86px;
+                }
+            }
+        }        
+        
+        
+        &.app-widget-button-ghost{
+            .box-shadow(0px 0px 0px 3px fade(@app-desing-border-color,50%));
+        }
+        
+        .app-widget-button-build-style(app-widget-button-primary,@app-design-primary-bg,@app-design-primary-color);
+        .app-widget-button-build-style(app-widget-button-info,@app-design-info-bg,@app-design-info-color);
+        .app-widget-button-build-style(app-widget-button-success,@app-design-success-bg,@app-design-success-color);
+        .app-widget-button-build-style(app-widget-button-warning,@app-design-warning-bg,@app-design-warning-color);
+        .app-widget-button-build-style(app-widget-button-danger,@app-design-danger-bg,@app-design-danger-color);
+    }
+    // end widget button
+    
+    // widget tile
+    .app-widget-tile-build-style(@name,@bg,@color){
+        &.@{name}{
+            background: @bg;
+            border: 1px solid darken(@bg,1%);
+            
+            .title,.intval,.icon{
+                color: @color;
+            }
+            .subtitle{
+                color: darken(@color,10%);
+            }
+        }
+    }
+    
+    .app-widget-tile{
+        float: left;
+        width: 100%;
+        padding: 10px 15px;
+        min-width: 90px;
+        background: @app-widget-tile-bg;
+        border: 1px solid @app-widget-tile-border;
+        margin-bottom: 20px;
+        .border-radius(3px);
+        .clearfix();
+        
+        .row{
+            margin: 0px;
+            
+            [class^='col-']{
+                padding: 0px;
+            }
+        }
+        
+        .line{
+            float: left;
+            width: 100%;
+        }
+        .title,.subtitle{
+            color: @app-layout-base-font-color-heading;
+            font-size: @app-layout-base-font-size - 2;
+            font-weight: 600;
+            float: left;            
+            text-transform: uppercase;
+        }
+        .subtitle{
+            color: @app-layout-base-font-color-secondary;
+        }
+        
+        .intval{
+            font-size: 27px;
+            line-height: 50px;
+            font-weight: 600;
+            text-align: center;
+            float: left;
+            width: 100%;
+            
+            small{
+                font-size: 16px;
+                color: @app-layout-base-font-color-secondary;
+                text-transform: uppercase;
+                line-height: 20px;
+            }
+            
+            &.intval-lg{
+                line-height: 60px;
+                font-size: 34px;
+            }
+        }
+        
+        .icon{
+            float: left;
+            width: 100%;            
+            text-align: center;
+            padding-right: 10px;
+            
+            .fa{font-size: 42px; line-height: 60px;}
+            [class^='icon-']{font-size: 40px; line-height: 70px;}
+            
+            &.icon-right{
+                padding-right: 0px;
+                padding-left: 10px;
+            }
+            
+            &.icon-lg{                                
+                .fa{font-size: 56px; line-height: 90px;}
+                [class^='icon-']{font-size: 60px; line-height: 90px;}
+            }
+        }
+        
+        &.app-widget-highlight{
+            .box-shadow(0px 2px 6px rgba(0, 0, 0, 0.03));
+        }
+        
+        .app-widget-tile-build-style(app-widget-tile-primary,@app-design-primary-bg,@app-design-primary-color);
+        .app-widget-tile-build-style(app-widget-tile-info,@app-design-info-bg,@app-design-info-color);
+        .app-widget-tile-build-style(app-widget-tile-success,@app-design-success-bg,@app-design-success-color);
+        .app-widget-tile-build-style(app-widget-tile-warning,@app-design-warning-bg,@app-design-warning-color);
+        .app-widget-tile-build-style(app-widget-tile-danger,@app-design-danger-bg,@app-design-danger-color);
+    }
+    // end widget tile
+    
+    // widget informer
+    .app-widget-informer{
+        float: left;
+        width: 100%;
+        margin-bottom: 20px;
+        
+        .title{
+            color: @app-layout-base-font-color-heading;
+            font-size: @app-layout-base-font-size - 2;
+            font-weight: 600;
+            float: left;
+            width: 100%;
+            text-transform: uppercase;
+        }
+        
+        .subtitle{
+            font-size: @app-layout-base-font-size - 2;
+            color: @app-layout-base-font-color-secondary;
+            text-transform: uppercase;
+            font-weight: 600;
+            float: left;
+            width: 100%;
+        }
+        
+        .title,.subtitle{
+            .fa,[class^='icon-']{
+                margin-right: 5px;
+                font-size: 14px;
+                
+                &.pull-right{
+                    margin-right: 0px;
+                    margin-left: 5px;
+                }
+            }
+        }
+        
+        .intval{
+            font-size: 27px;
+            line-height: 35px;
+            color: @app-layout-base-font-color-heading;
+            font-weight: 600;            
+            float: left;
+            width: 100%;
+            
+            small{
+                font-size: 14px;
+                color: @app-layout-base-font-color-secondary;
+                font-weight: 600;
+            }
+            
+            &.intval-floated{
+                width: auto;
+                margin-right: 20px;
+                line-height: 40px;
+            }
+        }
+        
+        .tinyintval{
+            font-size: 15px;
+            font-weight: 700;
+            color: @app-layout-base-font-color-heading;
+            float: left;
+            width: 100%;
+            
+            small{
+                font-size: 12px;
+                color: @app-layout-base-font-color-secondary;
+                font-weight: 600;
+            }
+        }
+        
+        .app-widget-informer-side{
+            display: inline;            
+            
+            .title,.subtitle{
+                width: auto;
+                float: none;
+            }
+        }
+    }
+    // end widget informer
+}

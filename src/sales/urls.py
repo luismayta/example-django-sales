@@ -1,5 +1,7 @@
 from customuser.views import MyUserViewSet, ObtainAuthToken
+from django.conf import settings
 from django.conf.urls import include, url
+from django.conf.urls.static import static
 from django.contrib import admin
 from rest_framework import routers
 
@@ -24,3 +26,10 @@ urlpatterns = [
     # Core app.
     url(r'^', include('home.urls', namespace='home_app')),
 ]
+
+# The following enable structural 'static' files while in development mode.
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.STATIC_URL,
+        document_root=settings.STATIC_ROOT
+    )

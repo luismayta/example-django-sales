@@ -1,0 +1,185 @@
+.label-build(@name, @background, @color){
+    &.@{name}{
+        background: @background !important;
+        color: @color !important;
+    }
+}
+
+.label-bordered-build(@name, @border, @color){
+    &.@{name}{
+        border: 1px solid @border;
+        color: @color;
+        
+        &.label-ghost{
+            .box-shadow(0px 0px 0px 3px fade(@border,15%));
+        }
+        
+        &[href]:hover{
+            background: transparent;
+            border-color: darken(@border,10%);
+            color:  darken(@color,10%);
+        }
+    }
+}
+.badge-style-build(@name,@background, @color){
+    &.@{name}{
+        background: @background;
+        color: @color;
+        
+        &[href]:hover{
+            background: darken(@background,10%);            
+            color:  darken(@color,10%);
+        }
+    }
+}
+.badge-bordered-build(@name,@background,@color){
+    &.@{name}{
+        border: 2px solid @background;
+        color: @color;
+    }
+}
+
+.app{
+    .label{
+        position: relative;
+        line-height: 14px;
+        padding: 3px 5px;
+        font-size: 10px;
+        font-weight: 700;    
+        text-transform: uppercase;
+        letter-spacing: 0.5px;        
+        .border-radius(3px);
+        .transition(all @app-default-transition-speed linear);
+        
+        .label-build(label-default, @app-desing-border-color, @app-layout-base-font-color);
+        .label-build(label-primary, @app-design-primary-bg, @app-design-primary-color);
+        .label-build(label-success, @app-design-success-bg, @app-design-success-color);
+        .label-build(label-info, @app-design-info-bg, @app-design-info-color);
+        .label-build(label-warning, @app-design-warning-bg, @app-design-warning-color);
+        .label-build(label-danger, @app-design-danger-bg, @app-design-danger-color);        
+        
+        &.label-bordered{
+            padding: 2px 5px;
+            background: transparent;
+            
+            .label-bordered-build(label-default, @app-desing-border-color, @app-layout-base-font-color);
+            .label-bordered-build(label-primary, @app-design-primary-bg, @app-design-primary-bg);
+            .label-bordered-build(label-success, @app-design-success-bg, @app-design-success-bg);
+            .label-bordered-build(label-info, @app-design-info-bg, @app-design-info-bg);
+            .label-bordered-build(label-warning, @app-design-warning-bg, @app-design-warning-bg);
+            .label-bordered-build(label-danger, @app-design-danger-bg, @app-design-danger-bg);
+        }
+        
+        &.label-rounded{
+            .border-radius(10px);
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+         &.label-ghost{
+            margin: 0px 0px 0px 5px;
+        }
+    }
+    
+    .badge{
+        padding: 4px 6px 5px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        .border-radius(10px);
+        
+        .badge-style-build(badge-primary, @app-design-primary-bg, @app-design-primary-color);
+        .badge-style-build(badge-success, @app-design-success-bg, @app-design-success-color);
+        .badge-style-build(badge-info, @app-design-info-bg, @app-design-info-color);
+        .badge-style-build(badge-warning, @app-design-warning-bg, @app-design-warning-color);
+        .badge-style-build(badge-danger, @app-design-danger-bg, @app-design-danger-color);
+        
+        &.badge-bordered{
+            background: transparent;
+            padding: 2px 7px 3px;
+            
+            .badge-bordered-build(badge-default, @app-desing-border-color, @app-layout-base-font-color);
+            .badge-bordered-build(badge-primary, @app-design-primary-bg, @app-design-primary-bg);
+            .badge-bordered-build(badge-success, @app-design-success-bg, @app-design-success-bg);
+            .badge-bordered-build(badge-info, @app-design-info-bg, @app-design-info-bg);
+            .badge-bordered-build(badge-warning, @app-design-warning-bg, @app-design-warning-bg);
+            .badge-bordered-build(badge-danger, @app-design-danger-bg, @app-design-danger-bg);
+        }
+    }
+    
+    .label-icon{
+        line-height: 20px;
+        padding: 5px;
+        text-align: center;
+        min-width: 30px;
+        background: @app-desing-border-color;
+        display: inline-block;
+        border-radius: 3px;
+        .transition(all @app-default-transition-speed linear);
+        text-decoration: none;
+        
+        .badge-style-build(label-icon-primary, @app-design-primary-bg, @app-design-primary-color);
+        .badge-style-build(label-icon-success, @app-design-success-bg, @app-design-success-color);
+        .badge-style-build(label-icon-info, @app-design-info-bg, @app-design-info-color);
+        .badge-style-build(label-icon-warning, @app-design-warning-bg, @app-design-warning-color);
+        .badge-style-build(label-icon-danger, @app-design-danger-bg, @app-design-danger-color);
+        
+        &.label-icon-bordered{
+            background: transparent;
+            padding: 4px 5px;
+            
+            .label-bordered-build(label-icon-default, @app-desing-border-color, @app-layout-base-font-color);
+            .label-bordered-build(label-icon-primary, @app-design-primary-bg, @app-design-primary-bg);
+            .label-bordered-build(label-icon-success, @app-design-success-bg, @app-design-success-bg);
+            .label-bordered-build(label-icon-info, @app-design-info-bg, @app-design-info-bg);
+            .label-bordered-build(label-icon-warning, @app-design-warning-bg, @app-design-warning-bg);
+            .label-bordered-build(label-icon-danger, @app-design-danger-bg, @app-design-danger-bg);
+        }
+        
+        &.label-icon-rounded{
+            .border-radius(50%);
+        }
+        
+        .fa{
+            font-size: 14px;
+        }                
+        
+        &.label-icon-sm{
+            min-width: 20px;
+            padding: 0px;
+            
+            &.label-icon-bordered{
+                line-height: 18px;
+            }
+        }
+        &.label-icon-lg{
+            min-width: 40px;
+            padding: 9px 5px 5px;
+            
+            *[class^="icon-"]{
+                font-size: 20px;
+            }
+            .fa{
+                font-size: 18px;
+                display: block;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                margin: 2px auto;
+            }
+        }
+        
+        &.label-icon-xlg{
+            min-width: 80px;
+            line-height: 50px;            
+            padding: 20px 0px 3px;
+            
+            .fa{
+                font-size: 28px;
+            }
+            *[class^="icon-"]{
+                font-size: 40px;
+            }
+        }
+    }
+}

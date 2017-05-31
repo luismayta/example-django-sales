@@ -4,9 +4,6 @@ src/assets/
 static/
 staticfiles/
 
-# gulp-compass metafile
-css
-
 # Node metadata
 node_modules
 
@@ -101,3 +98,4 @@ provision/ansible/roles/contrib
 *.retry
 .wercker
 dumps
+frontdev/css/

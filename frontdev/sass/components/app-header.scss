@@ -1,0 +1,449 @@
+$app-default-header-bg: #FFF;
+$app-default-header-color: $app-layout-base-font-color-heading;
+$app-default-header-height: 60px;
+$app-default-header-height-affix: 50px;
+
+$app-default-header-logo-background: darken($app-navigation-element-background,3%);
+$app-default-header-logo-background-light: #FFF;
+$app-default-header-logo-width: $app-layout-sidebar-width;
+$app-default-header-logo-condensed-width: 120px;
+
+$app-header-navigation-color: $app-desing-base-element-link;
+$app-header-navigation-color-hover: $app-desing-base-element-link-hover;
+$app-header-navigation-font-size: 12px;
+$app-header-navigation-dropdown-bg: $app-desing-base-element-bg;
+$app-header-navigation-dropdown-bg-hover: $app-desing-base-element-bg-hover;
+$app-header-navigation-dropdown-font-size: 11px;
+$app-header-navigation-dropdown-color: $app-desing-base-element-link;
+$app-header-navigation-dropdown-color-hover: $app-desing-base-element-link-hover;
+$app-header-navigation-dropdown-border: $app-desing-border-color;
+$app-header-navigation-item-bg: $app-desing-base-element-bg;
+$app-header-navigation-item-bg-hover: $app-desing-base-element-bg-hover;
+$app-header-navigation-item-color: $app-design-main-color;
+$app-header-navigation-item-color-hover: darken($app-design-main-color,10%);
+
+.app{
+    .app-header{
+        float: left;
+        width: 100%;
+        background: $app-default-header-bg;
+        height: $app-default-header-height;
+        border-bottom: 1px solid $app-desing-border-color;
+
+        .app-header-logo{
+            float: left;
+            width: $app-default-header-logo-width;
+            height: $app-default-header-height;
+            background: url(../img/logo.png) left top no-repeat;
+            background-color: $app-default-header-logo-background;
+            text-indent: 9999px;
+            font-size: 0px;
+            @include transition(background $app-default-transition-speed linear);
+
+            &:hover{
+                background-color: darken($app-default-header-logo-background,1%);
+            }
+
+            &.app-header-logo-light{
+                background: url(../img/logo-dark.png) left top no-repeat;
+
+                &:hover{
+                    //background-color: darken($app-default-header-logo-background-light,1%);
+                }
+            }
+
+            &.app-header-logo-condensed{
+                width: $app-default-header-logo-condensed-width;
+            }
+        }
+
+        .app-header-title{
+            float: left;
+            padding: 10px 10px 10px 15px;
+
+            h1,h2,h3,h4,h5,h6,.title{
+                font-size: 14px;
+                line-height: 40px;
+                font-weight: 600;
+                padding: 0px;
+                margin: 0px;
+
+                span{
+                    font-size: 20px;
+                    line-height: 40px;
+                    float: left;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .app-header-buttons{
+            float: left;
+            padding: 9px 5px 10px 10px;
+            margin: 0px;
+            list-style: none;
+            width: auto;
+
+            > li{
+                float: left;
+                position: relative;
+                margin-right: 5px;
+                width: auto;
+
+                > .contact{
+                    margin-bottom: 0px;
+                }
+
+                &:last-child{
+                    margin-right: 0px;
+                }
+            }
+
+            &.app-header-buttons-separated{
+
+                li{
+                    padding-right: 5px;
+
+                    &:after{
+                        content: " ";
+                        position: absolute;
+                        right: 0px;
+                        top: 10px;
+                        height: 20px;
+                        width: 1px;
+                        background: $app-desing-border-color;
+                    }
+
+                    &:last-child{
+                        padding-right: 0px;
+                        margin-right: 0px;
+
+                        &:after{
+                            display: none;
+                        }
+                    }
+
+                }
+
+            }
+
+            &.pull-right{
+                padding-right: 15px;
+            }
+        }
+
+
+        // header navigation
+        .app-header-navigation{
+            float: left;
+            width: auto;
+
+            nav{
+                float: left;
+                width: auto;
+
+                > ul{
+                    float: left;
+                    padding: 0px;
+                    margin: 0px;
+                    list-style: none;
+
+                    > li{
+                        float: left;
+                        width: auto;
+                        position: relative;
+
+                        &.title{
+                            display: none;
+                        }
+
+                        > a{
+                            display: block;
+                            float: left;
+                            line-height: 20px;
+                            padding: 20px 15px;
+                            font-size: $app-header-navigation-font-size;
+                            font-weight: 700;
+                            color: $app-header-navigation-color;
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            @include transition(all $app-default-transition-speed linear);
+
+                            span{
+                                display: none;
+                            }
+                        }
+
+                        .app-header-navigation-megamenu{
+                            display: none;
+                            width: 94%;
+                            position: fixed;
+                            left: 3%;
+                            top: $app-default-header-height;
+                            padding: 15px;
+                            margin-top: -1px;
+                            border: 1px solid $app-header-navigation-dropdown-border;
+                            z-index: 10;
+                            background: $app-header-navigation-dropdown-bg;
+                            @include box-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
+                        }
+
+                        ul{
+                            display: none;
+                            position: absolute;
+                            left: 0px;
+                            top: 100%;
+                            width: 250px;
+                            list-style: none;
+                            padding: 0px;
+                            margin: 0px;
+                            z-index: 10;
+                            border: 1px solid $app-header-navigation-dropdown-border;
+                            margin-top: -1px;
+                            @include box-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
+
+                            > li{
+                                > a{
+                                    float: left;
+                                    width: 100%;
+                                    padding: 15px 15px;
+                                    background: $app-header-navigation-dropdown-bg;
+                                    color: $app-header-navigation-dropdown-color;
+                                    text-decoration: none;
+                                    text-transform: uppercase;
+                                    font-weight: 700;
+                                    font-size: $app-header-navigation-dropdown-font-size;
+                                    @include transition(all $app-default-transition-speed linear);
+
+                                    span{display: none;}
+                                }
+
+                                &:hover{
+                                    > a{
+                                        background: $app-header-navigation-dropdown-bg-hover;
+                                        color: $app-header-navigation-dropdown-color-hover;
+                                    }
+                                }
+                            }
+                        }
+
+                        &:hover{
+                            > a{
+                                color: $app-header-navigation-color-hover;
+                            }
+
+                            > ul, > .app-header-navigation-megamenu{
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.app-header-navigation-hover{
+                nav{
+                    > ul{
+                        > li{
+                            > a{
+                                background: $app-header-navigation-item-bg;
+                                color: $app-header-navigation-item-color;
+                                border-bottom: 1px solid $app-desing-border-color;
+                                padding-bottom: 19px;
+
+                                &:hover{
+                                    background: $app-header-navigation-item-bg-hover;
+                                    color: $app-header-navigation-item-color-hover;
+                                }
+                            }
+
+                            ul{
+                                > li > a{
+                                    color: $app-header-navigation-item-color;
+
+                                    &:hover{
+                                        color: $app-header-navigation-item-color-hover;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        // end header navigation
+
+        // header search
+        .app-header-search{
+           float: left;
+           padding: 10px 0px;
+           position: relative;
+
+            > input{
+                border: 1px solid transparent;
+                float: left;
+                width: 40px;
+                padding: 0px 0px 0px 40px;
+                line-height: 38px;
+                overflow: hidden;
+                @include transition(width $app-default-transition-speed linear);
+                @include border-radius(3px);
+
+                &:focus{
+                    width: 220px;
+                    border: 1px solid $app-desing-border-color;
+                    background: darken($app-default-header-bg,1%);
+                }
+            }
+
+            &:after{
+                position: absolute;
+                left: 0px;
+                top: 10px;
+                width: 40px;
+                font-size: 20px;
+                height: 40px;
+                line-height: 40px;
+                color: $app-layout-base-font-color;
+                content: "\e853";
+                font-family: 'linearicons';
+                text-align: center;
+                color: $app-layout-base-font-color-secondary;
+                cursor: pointer;
+            }
+        }
+        // end header search
+
+
+        .container{
+            &.container-boxed{
+                margin: 0px auto;
+
+                .app-header-logo{
+                    background-position-x: -15px;
+                }
+
+                .app-header-buttons{
+                    &.pull-right{
+                        padding-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .app{
+        .app-container{
+            &.app-header-inside-content{
+                padding-top: $app-default-header-height;
+
+                .app-content{
+                    .app-header{
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        z-index: 100;
+                    }
+                }
+            }
+        }
+
+        .app-header{
+            height: auto;
+
+            .container{
+                &.container-boxed{
+                    padding-left: 0px;
+                }
+            }
+
+            .app-header-navigation{
+                display: none;
+                float: left;
+                width: 100%;
+                clear: both;
+
+                nav{
+                    width: 100%;
+
+                    > ul{
+                        width: 100%;
+
+                        > li{
+                            width: 100%;
+
+                            > a{
+                                width: 100%;
+                                border-top: 1px solid lighten($app-header-navigation-dropdown-border,10%);
+                                padding: 15px;
+                            }
+
+                            .app-header-navigation-megamenu{
+                                position: relative;
+                                top: auto;
+                                float: left;
+                                border: 0px;
+                                @include box-shadow(none);
+
+                                div[class^='col-md']{
+                                    margin-bottom: 0px;
+                                }
+                            }
+
+                            ul{
+                                position: relative;
+                                top: auto;
+                                float: left;
+                                width: 100%;
+                                border: 0px;
+                                @include box-shadow(none);
+
+                                > li{
+                                    width: 100%;
+
+                                    > a{
+                                        padding-left: 30px;
+                                    }
+                                }
+                            }
+
+                            &:hover{
+                                > ul, > .app-header-navigation-megamenu{
+                                    display: none;
+                                }
+                            }
+
+                            &.open{
+                                > ul, > .app-header-navigation-megamenu{
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.show{
+                    display: block;
+                }
+            }
+
+            .app-header-search{
+                > input{
+                    &:focus{
+                        width: 100px;
+                    }
+                }
+            }
+            .app-header-buttons{
+                .contact{
+                    padding-left: 0px;
+                    padding-right: 40px;
+                    img,.contact-container{display: none;}
+                    &:after{display: none;}
+                }
+            }
+        }
+    }
+}
