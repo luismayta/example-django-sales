@@ -1,0 +1,107 @@
+    @switch-default: @app-desing-base-element-bg;
+    @switch-success: @app-design-success-bg;
+    @switch-danger: @app-design-danger-bg;
+    @switch-border: @app-desing-border-color;
+   
+    /* switch button */
+    .switch{
+        cursor:pointer;
+        position:relative; 
+        height: 30px;
+        line-height: 30px;
+        margin: 5px 0px;
+        
+        input{
+            position:absolute;
+            opacity:0;
+            filter:alpha(opacity=0);
+            
+            &:checked+span:after{left: 16px;}
+            &:checked+span{background-color: @switch-success;}
+            &:disabled+span{
+                background-color: @switch-default;
+                
+                &:after{
+                    .box-shadow(none);
+                    border: 1px solid @switch-border;
+                }
+            }
+        }            
+        
+        span{
+            position:relative; 
+            width: 45px;
+            height: 30px;
+            .border-radius(30px);
+            background-color: @switch-danger; 
+            border:1px solid rgba(0,0,0,0.1);
+            display: inline-block; 
+            .transition(all @app-default-transition-speed linear);             
+            left: 0px;
+            
+            &:after{
+                content:""; 
+                position:absolute; 
+                background-color: #fff;
+                width: 26px;
+                top:1px; 
+                bottom:1px; 
+                left:1px; 
+                .border-radius(25px);
+                .box-shadow(1px 1px 2px rgba(0,0,0,0.1)); 
+                .transition(all @app-default-transition-speed linear); 
+            }
+        }            
+        
+        &.switch-lg{
+            margin: 0px; 
+            height: 35px; 
+            line-height: 35px;
+            margin: 0px !important;
+            
+            input{
+                &:checked+span:after{left: 27px;}
+            }
+            
+            span{
+                width: 60px; 
+                height: 35px; 
+                .border-radius(30px);
+                
+                &:after{width: 30px;}
+            }
+        }
+        
+        &.switch-sm{
+            margin: 0px; 
+            height: 20px; 
+            line-height: 20px;
+            margin: 10px 0px;
+            
+            input{
+                &:checked+span:after{left: 16px;}
+            }
+            
+            span{
+                width: 35px; 
+                height: 20px; 
+                .border-radius(10px);
+                
+                &:after{width: 16px;}
+            }
+        }
+        
+        &.switch-cube{
+            span{
+                .border-radius(3px);
+                
+                &:after{
+                    .border-radius(2px);
+                    background-image: url(../img/switch/switch.png);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }                                
+            }            
+        }
+    }
+    /* ./switch button */

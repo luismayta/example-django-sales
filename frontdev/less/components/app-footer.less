@@ -1,0 +1,134 @@
+@app-footer-bg: darken(@app-design-main-color,4%);
+@app-footer-title-size: 12px;
+@app-footer-title-color: #C5D1CD;
+@app-footer-font-size: 13px;
+@app-footer-font-color: #80909A;
+@app-footer-link-color: lighten(#80909A,10%);
+
+.app-footer-style-build(@name,@bg,@title-size,@title-color,@font-size,@font-color,@link-color){
+    &.@{name}{
+        background: @bg;
+        color: @font-color;
+        font-size: @font-size;
+        
+        a{color: @link-color;}
+        
+        .title{
+            font-size: @title-size;
+            color: @title-color;
+        }
+        
+        .form-control{
+            background: darken(@bg,4%);
+            border-color: darken(@bg,5%);
+        }
+        
+        .app-footer-line{            
+            &.darken{
+                background: darken(@bg,5%);
+            }
+        }
+        
+        .label-icon{
+            .label-bordered-build(label-icon-footer, @font-color, @font-color);
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.app{
+    .app-footer{
+        float: left;
+        width: 100%;                
+        
+        .app-footer-style-build(app-footer-default,@app-footer-bg,@app-footer-title-size,@app-footer-title-color,@app-footer-font-size,@app-footer-font-color,@app-footer-link-color);
+        .app-footer-style-build(app-footer-dark,#111,12px,#AAA,13px,#666,#999);
+        
+        ul{
+            margin-bottom: 0px;
+            &.list-unstyled{
+                li{
+                    margin-bottom: 5px;
+                }
+            }
+        }
+        
+        .copyright{
+            float: left;
+            line-height: 20px;
+        }                                
+        
+        .title{            
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            
+            img{
+                float: left;
+                margin-right: 10px;
+            }
+            
+            span[class^='icon-']{
+                font-size: 20px;
+                float: left;
+                margin-right: 10px;
+                line-height: 26px;
+                
+            }
+            
+            &:first-child{
+                margin-top: 0px;
+            }
+        }        
+        
+        .app-footer-line{
+            float: left;
+            width: 100%;
+            padding: 10px;
+            
+            &.extended{
+                padding: 30px;
+            }                        
+        }
+        
+        .app-footer-articles{
+            margin-bottom: 20px;
+            
+            > div:first-child{
+                padding-right: 0px;
+            }
+            
+            a{}
+            
+            img{margin-top: 5px;}            
+            &:last-child{margin-bottom: 0px;}
+        }
+        
+        .container{
+            &.container-boxed{
+                margin: 0px auto;
+            }
+        }
+    }    
+}
+
+@media (max-width: @screen-md) { 
+    
+    .app{
+        .app-footer{            
+            .app-footer-line{
+                text-align: center;
+                
+                &.extended{
+                    text-align: left;
+                }
+                
+                .copyright{
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+}

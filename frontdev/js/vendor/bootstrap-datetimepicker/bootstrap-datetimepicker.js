@@ -2384,7 +2384,7 @@
             time: "icon-clock",
             date: "icon-calendar-full",
             up: "icon-chevron-up",
-            down: "icon-chevron-down",
+            down: "icon-chevron-down",                    
             previous: 'icon-chevron-left',
             next: 'icon-chevron-right',
             today: 'icon-calendar-insert',

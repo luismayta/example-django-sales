@@ -1,0 +1,145 @@
+@app-messages-bg: #7bc4ef;
+@app-messages-color: #FFF;
+@app-messages-border-color: darken(#7bc4ef,5%);
+@app-messages-date-color: @app-layout-base-font-color-secondary;
+
+@app-messages-inbox-bg: #62bf6e;
+@app-messages-inbox-border-color: darken(#62bf6e,5%);
+@app-messages-inbox-color: #FFF;
+
+.app{
+    
+    .messages{
+        .messages-item{
+            float: left;
+            width: 100%;
+            padding-right: 65px;
+            position: relative;
+            margin-bottom: 20px;
+            
+            .user{
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                
+                > img{
+                    width: 46px;
+                    padding: 3px;
+                    border: 1px solid @app-messages-border-color;
+                    .border-radius(50%);
+                }
+            }
+            .text{
+                position: relative;
+                float: right;
+                width: 80%;
+                border: 1px solid @app-messages-border-color;
+                background: @app-messages-bg;
+                color: @app-messages-color;
+                padding: 15px;
+                margin-bottom: 5px;
+                .border-radius();
+                
+                &:after, &:before {
+                    left: 100%;
+                    top: 50%;
+                    border: solid transparent;
+                    content: " ";
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    pointer-events: none;
+                }
+
+                &:after {
+                    border-color: rgba(245, 245, 245, 0);
+                    border-left-color: @app-messages-bg;
+                    border-width: 6px;
+                    margin-top: -6px;
+                }
+                &:before {
+                    border-color: rgba(240, 240, 240, 0);
+                    border-left-color: @app-messages-border-color;
+                    border-width: 7px;
+                    margin-top: -7px;
+                }
+            }
+            .date{
+                float: right;
+                width: 80%;
+                color: @app-messages-date-color;
+                text-align: center;
+            }
+            
+            &.inbox{
+                padding-right: 0px;
+                padding-left: 65px;
+                
+                .user{
+                    > img{
+                        border-color: @app-messages-inbox-border-color;
+                    }
+                }
+                
+                .text{                    
+                    float: left;
+                    background: @app-messages-inbox-bg;
+                    border-color: @app-messages-inbox-border-color;
+                    color: @app-messages-inbox-color;
+                    
+                    &:after, &:before {
+                        left: auto;
+                        right: 100%;
+                    }
+
+                    &:after {      
+                        border-left-color: transparent;
+                        border-right-color: @app-messages-inbox-bg;                        
+                    }
+                    &:before {                        
+                        border-left-color: transparent;
+                        border-right-color: @app-messages-inbox-border-color;
+                    }
+                }
+                .date{
+                    float: left;
+                }
+                .user{
+                    left: 0px;
+                    right: auto;
+                }
+            }
+        }
+        
+        &.messages-comments{
+            .messages-item{
+                &.inbox{
+                    .user{                                                
+                        > img{
+                            border-color: @app-desing-border-color;
+                        }
+                    }
+                    .text{
+                        width: 100%;
+                        background: @app-desing-base-element-bg;
+                        border-color: @app-desing-border-color;
+                        color: @app-layout-base-font-color;
+                        
+                        &:after {                          
+                            border-left-color: transparent;
+                            border-right-color: @app-desing-base-element-bg;
+                        }
+                        &:before {
+                            border-left-color: transparent;
+                            border-right-color: @app-desing-border-color;
+                        }
+                    }
+                    .date{
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    
+}

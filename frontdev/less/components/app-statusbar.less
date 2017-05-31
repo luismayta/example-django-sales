@@ -1,0 +1,74 @@
+.app-statusbar-build(@name,@bg,@color){
+    &.@{name}{
+        background: fade(@bg,90%);
+        
+        .app-statusbar-text, .app-statusbar-close, .app-statusbar-icon{
+            color: @color;
+        }
+    }
+}
+
+.app-statusbar{
+    position: fixed; 
+    bottom: 0px; 
+    width: 100%; 
+    padding: 10px; 
+    background: rgba(0,0,0,0.90); 
+    display: none;
+    z-index: 20;
+    .box-shadow(-1px 0px 6px 0px rgba(0,0,0,0.1));
+    
+    .app-statusbar-icon{
+        float: left; 
+        margin: 10px 10px 0px 10px;        
+        color: #FFF;
+        
+        [class^=icon]{            
+            font-size: 20px; 
+            line-height: 20px;
+        }
+        .app-spinner{
+            margin: 0px 5px 0px 0px;
+        }
+    }
+    
+    .app-statusbar-text{
+        font-weight: 600; 
+        color: #FFF;
+        float: left; 
+        padding-right: 30px; 
+        line-height: 40px;
+    }
+    
+    .app-statusbar-body{
+        float: left; 
+        width: 100%;
+        padding-right: 30px;
+    }
+    
+    .app-statusbar-close{
+        position: absolute; 
+        right: 20px; 
+        top: 50%; 
+        margin-top: -6px; 
+        cursor: pointer; 
+        opacity: 0.5;
+        color: #FFF;
+        
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+    
+    &.app-statusbar-top{
+        bottom: auto;
+        top: 0px;
+    }
+    
+    .app-statusbar-build(app-statusbar-default,@app-desing-base-element-bg,@app-layout-base-font-color);
+    .app-statusbar-build(app-statusbar-primary,@app-design-primary-bg,@app-design-primary-color);
+    .app-statusbar-build(app-statusbar-info,@app-design-info-bg,@app-design-info-color);
+    .app-statusbar-build(app-statusbar-success,@app-design-success-bg,@app-design-success-color);
+    .app-statusbar-build(app-statusbar-warning,@app-design-warning-bg,@app-design-warning-color);
+    .app-statusbar-build(app-statusbar-danger,@app-design-danger-bg,@app-design-danger-color);        
+}                           

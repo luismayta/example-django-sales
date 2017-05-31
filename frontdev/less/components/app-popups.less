@@ -1,0 +1,279 @@
+
+.dropdown,.dropup{
+    float: left;
+}
+.dropdown-menu{
+    margin-top: 5px;
+    min-width: 220px;
+    background: @app-desing-base-element-bg;
+    border-color: @app-desing-border-color;
+    .box-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
+
+    > li{
+        > a{
+            display: block;
+            float: left;
+            width: 100%;
+            padding: 5px 15px;
+            line-height: 30px;
+            .transition(background @app-default-transition-speed linear);
+            
+            .label{
+                margin-top: 5px;
+                
+                &.pull-right{
+                    position: absolute;
+                    right: 15px;
+                }
+            }
+        }
+
+        /* icons support */
+        span[class^='icon-'],.fa{
+            float: left;
+            margin-right: 10px;
+            line-height: 30px;
+        }
+        span[class^='icon-']{
+            font-size: 20px;
+        }
+        .fa{
+            font-size: 14px;
+        }
+        /* end icons support */
+
+        /* checkbox and radio support */
+        .app-checkbox, .app-radio{
+            float: left;
+            width: auto;
+            margin: 5px 0px;
+        }
+        /* end checkbox and radio support */
+
+        &.active{
+            > a, 
+            > a:hover, 
+            > a:focus{
+                background: @app-desing-base-element-bg-hover;                
+                color: @app-layout-base-font-color;
+            }
+        }
+
+        &.dropdown-header{
+            margin-top: 5px;
+            padding: 5px 15px;
+            line-height: 30px;
+            font-size: @app-layout-base-font-size;
+            color: @app-layout-base-font-color;            
+            font-weight: 600;
+
+            &.highlight{                
+                background: darken(@app-desing-base-element-bg-hover,3%);                                
+            }                        
+
+            &:first-child{
+                margin-top: 0px;
+            }
+        }
+    }
+    
+    .divider{
+        margin: 5px 0px;
+    }
+    
+    &.dropdown-left{
+        left: auto;
+        right: 0px;
+    }
+    
+    &.dropdown-form{
+        padding: 0px;
+        width: 340px;
+        
+        > li{
+            padding: 15px;
+            
+            span[class^='icon-'],.fa{
+                float: none;
+                margin-right: 0px;
+                line-height: 20px;
+            }
+        }
+    }
+}
+
+.popover{
+    padding: 0px;
+    border: 1px solid @app-desing-border-color; 
+    .box-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
+    
+    > .arrow{
+        border-width: 6px;
+        
+        &:after{
+            border-width: 5px;
+        }                
+    }
+    
+    &.top{
+        > .arrow{margin-left: -5px; bottom: -6px;            
+            &:after{margin-left: -5px;}
+        }
+    }
+    
+    &.left{
+        > .arrow{right: -6px; margin-top: -5px;
+            &:after{bottom: -5px;}
+        }
+    }
+    &.right{
+        > .arrow{left: -6px; margin-top: -5px;
+            &:after{bottom: -5px;}
+        }
+    }
+    &.bottom{
+        > .arrow{margin-left: -5px; top: -6px;            
+            &:after{margin-left: -5px;}
+        }
+    }
+    
+    .popover-title{
+        float: left;
+        width: 100%;
+        padding: 10px 15px;
+        line-height: 20px;
+        font-weight: 600;
+        border: 0px;
+        border-bottom: 1px solid @app-desing-border-color;        
+    }
+    .popover-content{
+        float: left;
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+.modal-style-build(@name, @bg, @color){
+    &.@{name}{
+        .modal-header{
+            background: @bg;
+            
+            .modal-title{
+                color: @color;
+            }
+        }
+    }
+}
+
+.modal{
+    .modal-dialog{
+        margin: 100px auto 0px;
+        
+        .modal-content{
+            .border-radius(0px);
+            border-color: transparent;
+            .box-shadow(0px 0px 0px 10px rgba(0, 0, 0, 0.1));
+            .clearfix();
+            
+            .modal-header{
+                border: 0px;
+                float: left;
+                width: 100%;                
+                .border-radius(@app-desing-border-radius @app-desing-border-radius 0px 0px);
+                
+                .modal-title{
+                    width: auto;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 30px;
+                }
+            }
+            .modal-body{
+                float: left;
+                width: 100%;
+                
+                
+                .app-heading{
+                    background: transparent;
+                }
+            }
+            .modal-footer{
+                float: left;
+                width: 100%;
+                border: 0px;
+            }
+            
+        }
+        
+        > .close{
+            position: absolute;
+            top: -14px;
+            right: -35px;            
+            color: #FFF;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            opacity: 0.5;
+            .transition(opacity @app-default-transition-speed linear);
+            
+            [class^="icon-"]{
+                font-size: 20px;
+            }
+            .fa{font-size: 14px;}
+            
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+        
+        &.modal-fw{
+            width: 94%;
+        }
+        
+        .modal-style-build(modal-primary,@app-design-primary-bg,@app-design-primary-color);
+        .modal-style-build(modal-info,@app-design-info-bg,@app-design-info-color);
+        .modal-style-build(modal-success,@app-design-success-bg,@app-design-success-color);
+        .modal-style-build(modal-warning,@app-design-warning-bg,@app-design-warning-color);
+        .modal-style-build(modal-danger,@app-design-danger-bg,@app-design-danger-color);
+                
+    }    
+}
+
+.tooltip{
+    .tooltip-inner{
+        font-size: 9px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1.1px;
+        padding: 5px 10px;        
+    }
+}
+
+.noty_text{
+    strong{
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (max-width: @screen-md) {
+    .modal{
+        padding-left: 15px;
+        
+        .modal-dialog{
+            margin: 50px auto 0px;
+            width: 100%;
+        
+            .modal-content{                
+                .box-shadow(none);
+                width: 100%;
+            }
+        }
+    }
+    
+}

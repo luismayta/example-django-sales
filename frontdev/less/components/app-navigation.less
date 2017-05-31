@@ -1,0 +1,888 @@
+@app-navigation-background: #2D3349;
+@app-navigation-element-color: #C5D1CD;
+@app-navigation-element-color-hover: #FFF;
+@app-navigation-element-title-color: #55698A;
+@app-navigation-element-size: 11px;
+@app-navigation-element-weight: 600;
+@app-navigation-element-icon-color: #55698A;
+@app-navigation-element-icon-color-active: #e69c0f;
+@app-navigation-element-background: #2D3349;
+@app-navigation-element-background-hover: darken(@app-navigation-element-background,2%);
+@app-navigation-element-background-active: darken(@app-navigation-element-background,3%);
+@app-navigation-element-border: darken(@app-navigation-element-background,2%);
+
+@app-navigation-logo-background: darken(@app-navigation-element-background,3%);
+@app-navigation-logo-height: 60px;
+
+
+@app-navigation-horizontal-bg: #2D3349;
+@app-navigation-horizontal-bg-active: #FFF;
+@app-navigation-horizontal-border: #DBE0E4;
+@app-navigation-horizontal-color: #C5D1CD;
+@app-navigation-horizontal-color-hover: #FFF;
+@app-navigation-horizontal-color-active: #1B2431;
+@app-navigation-horizontal-secondary-color: lighten(#1B2431,10%);
+@app-navigation-horizontal-secondary-bg-hover: #F5F5F5;
+@app-navigation-horizontal-font-size: 11px;
+@app-navigation-horizontal-font-weight: 700;
+//@app-navigation-logo-height-minimized: 50px;
+
+.app-navigation-style-build(@name, @nav-bg, @nav-logo-bg, @nav-logo-bg-hover, @nav-logo-bg-minimized, @nav-element-color, @nav-element-shadow, @nav-element-color-hover, @nav-element-size, @nav-element-weight, @nav-element-border, @nav-element-bg, @nav-element-bg-hover, @nav-element-bg-active, @nav-icon-color, @nav-icon-color-active,@nav-title-color){
+    &.@{name}{
+        background: @nav-bg;
+        
+        .app-navigation-logo{
+            background: @nav-logo-bg;
+            
+            .app-navigation-logo-button{
+                background: darken(@nav-element-bg,4%);
+                color: @nav-element-color;
+                
+                &:hover{            
+                    background: darken(@nav-element-bg,5%);            
+                }
+            }
+            
+            &:hover{ background: @nav-logo-bg-hover; }
+        }
+        
+        nav{
+            > ul > li.openable{
+                > a:after{color: @nav-icon-color; }
+                
+                &.open{
+                    > a{background: @nav-element-bg-active;}                                        
+                }
+            }
+            
+            > ul{
+                > li{
+                    border-bottom: 1px solid @nav-element-border;
+                    
+                    a{
+                        background: @nav-element-bg;
+                        color: @nav-element-color;                      
+                        font-size: @nav-element-size;                    
+                        font-weight: @nav-element-weight;                                          
+                        .text-shadow(@nav-element-shadow);
+                        
+                        span{                            
+                            color: @nav-icon-color;
+                        }
+
+                        &:hover, &.active{
+                            color: @nav-element-color-hover;
+                            background: @nav-element-bg-active;
+                        }
+                        
+                        &.active{
+                            span{
+                                color: @nav-icon-color-active;
+                                
+                                &.nav-icon-hexa{
+                                    color: @nav-icon-color-active;
+                                }
+                            }
+                        }
+                    }
+                    
+                    ul{                                        
+                        > li{                                                
+                            > a{
+                                background: darken(@nav-element-bg,4%);
+                                
+                                &:hover,&.active{
+                                    background: darken(@nav-element-bg,5%);
+                                }
+                            }
+                            &.open{
+                                > a{
+                                    background: darken(@nav-element-bg,5%);
+                                }
+                                > ul > li > a{
+                                    background: darken(@nav-element-bg,6%);
+                                    
+                                    &:hover,&.active{
+                                        background: darken(@nav-element-bg,7%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.title{                        
+                        font-size: @nav-element-size;
+                        color: @nav-title-color;
+                        .text-shadow(@nav-element-shadow);
+                    }
+                }
+            }
+        }
+        
+        &.app-navigation-minimized{
+            .app-navigation-logo{
+                //height: @app-navigation-logo-height-minimized;
+                background-image: @nav-logo-bg-minimized;
+            }
+            nav{                                
+                > ul > li > a > span{color: @nav-element-color;}
+            }
+        }
+    }
+}
+
+.app-navigation{
+    background: @app-navigation-background;
+    
+    //build default navigation style
+    .app-navigation-style-build(
+        app-navigation-style-default,
+        @app-navigation-background,
+        url(../img/logo.png) left top no-repeat @app-navigation-logo-background,
+        url(../img/logo.png) left top no-repeat darken(@app-navigation-logo-background,3%),
+        url(../img/logo-sm.png),
+        @app-navigation-element-color,
+        1px 2px rgba(0,0,0,0.2),
+        @app-navigation-element-color-hover,
+        @app-navigation-element-size,
+        @app-navigation-element-weight,
+        @app-navigation-element-border,
+        @app-navigation-element-background,
+        @app-navigation-element-background-hover,
+        @app-navigation-element-background-active,
+        @app-navigation-element-icon-color,
+        @app-navigation-element-icon-color-active,
+        @app-navigation-element-title-color);
+    // end of build
+    
+    //build white navigation style
+    .app-navigation-style-build(
+        app-navigation-style-light,
+        #FFF,
+        url(../img/logo-dark.png) left top no-repeat #FFF,
+        url(../img/logo-dark.png) left top no-repeat #F5F5F5,
+        url(../img/logo-dark-sm.png),
+        #333,
+        none,
+        #252525,
+        11px,
+        600,
+        #F2F2F2,
+        #FFF,
+        #F5F5F5,
+        #F2F2F2,
+        #7F8FA4,
+        #7F8FA4,    
+        #AAA);
+        
+        &.app-navigation-style-light{
+            border-right: 1px solid @app-desing-border-color;
+            .app-navigation-logo{
+                border-bottom: 1px solid @app-desing-border-color;
+            }
+        }
+    // end of build
+    
+    .app-navigation-logo{
+        float: left;
+        width: 100%;        
+        height: @app-navigation-logo-height;        
+        font-size: 0px;
+        padding-left: 15px;
+        position: relative;
+        .transition(background-color @app-default-transition-speed linear);
+        
+        .app-navigation-logo-button{
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 60px;            
+            height: 60px;
+            border: 0px;
+            background: transparent;
+            padding: 20px;
+            .transition(background @app-default-transition-speed linear);
+            
+            .app-navigation-logo-button-alert{
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                width: 16px;
+                height: 16px;
+                text-align: center;
+                line-height: 16px;
+                font-size: 10px;
+                background: @app-design-danger-bg;
+                color: @app-design-danger-color;
+                .box-shadow(0px 0px 0px 3px fade(@app-design-danger-bg,20%));
+                
+                .border-radius(2px);
+            }
+            
+            span[class^='icon-']{                
+                font-size: 20px;                
+            }
+        }
+    }
+    
+    nav{
+        float: left;
+        width: 100%;
+        
+        ul{
+            display: block;
+            float: left;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            
+            > li{
+                float: left;
+                width: 100%;
+                position: relative;
+                
+                > ul{
+                    max-height: 0px;
+                    overflow: hidden;                        
+                }
+                
+                &.openable{
+                    > a:after{
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+                        line-height: 30px;
+                        padding: 10px;
+                        width: 40px;
+                        font-size: 10px;
+                        font-family: "linearicons";
+                        content: "\e874";
+                        text-align: center;                                               
+                        .transition(all @app-default-transition-speed linear);
+                    }                                        
+                    
+                    &.open{                        
+                        > a{                                                        
+                            &:after{                                
+                                .rotate(180deg);
+                            }
+                        }                            
+                        > ul{
+                            max-height: 1000px;
+                            overflow: visible;
+                        }
+                    }
+                    
+                    > a{
+                        span.label{
+                            right: 40px;
+                        }
+                    }                    
+                }
+            }
+        }
+        
+        > ul{
+            > li{
+                
+                a{
+                    display: block;
+                    float: left;
+                    width: 100%;
+                    line-height: 30px;
+                    padding: 10px 30px 10px 15px;                    
+                    text-decoration: none;
+                    .transition(all @app-default-transition-speed linear);                                     
+                    position: relative;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                    
+                    
+                    span{
+                        float: left;
+                        margin: 4px 15px 0px 0px;
+                        font-size: 20px;
+                        width: 20px;
+                        height: 20px;                        
+                        
+                        &.nav-icon-hexa{
+                            margin: 0px 10px 0px -5px;
+                            font-size: 11px;
+                            font-weight: 700;
+                            height: 30px;
+                            width: 30px;                            
+                            line-height: 30px;
+                            text-transform: initial;
+                            text-align: center;
+                            background: url(../img/navigation/hexa.png) left top no-repeat;
+                        }
+                        &.nav-icon-cube,&.nav-icon-circle{
+                            margin: 0px 10px 0px -5px;
+                            font-size: 11px;
+                            font-weight: 700;
+                            height: 30px;
+                            width: 30px;                            
+                            line-height: 30px;
+                            text-transform: initial;
+                            text-align: center;
+                            background: rgba(0,0,0,0.1);
+                            border: 1px solid rgba(0,0,0,0.2);                            
+                        }
+                        &.nav-icon-circle{
+                            .border-radius(50%);
+                        }
+                    }
+                    
+                    span.label{
+                        position: absolute;
+                        float: none;
+                        width: auto;
+                        right: 10px;
+                        top: 15px;
+                        margin: 0px;
+                        
+                        &.label-ghost{
+                            margin: 0px;
+                        }
+                    }
+                    
+                }
+                
+                ul{                                        
+                    > li{
+                        > a{
+                            padding-left: 25px;
+                        }
+                        
+                        ul{
+                            > li > a{
+                                padding-left: 45px;
+                            }
+                        }                                                
+                    }
+                }
+                
+                &.title{
+                    line-height: 30px;
+                    padding: 20px 0px 10px 15px;                                        
+                }
+            }
+        }
+    }
+    
+    &.app-navigation-minimized{
+        
+        .app-navigation-logo{            
+            background-image: url(../img/logo-sm.png);
+            
+            .app-navigation-logo-button{
+                display: none;
+            }
+        }
+        
+        nav{            
+            
+            ul{
+                > li{
+                    > a{
+                        padding-left: 15px;                        
+                    }
+                    
+                    &.openable{
+                        > a:after{content: "\e876";}
+                    }                    
+                }
+            }
+            
+            > ul{
+                .animation(nav-appear,300ms,1,linear);
+                
+                > li{
+                    > a{
+                        font-size: 0px;
+                        padding: 10px;
+                        text-align: center;
+
+                        span{
+                            width: 100%;
+                            font-size: 20px;
+                            margin-right: 0px;
+                            margin-top: 0px;
+                            line-height: 30px;       
+                            
+                            &.nav-icon-hexa{
+                                margin: 0px 10px 0px 0px;
+                                font-size: 12px;
+                                font-weight: 700;
+                                height: 30px;
+                                width: 30px;                            
+                                line-height: 30px;
+                                text-transform: initial;
+                                text-align: center;
+                                background: url(../img/navigation/hexa.png) left top no-repeat;
+                            }
+                            &.nav-icon-cube,&.nav-icon-circle{
+                                margin: 0px 10px 0px -5px;
+                                font-size: 12px;
+                                font-weight: 700;
+                                height: 30px;
+                                width: 30px;                            
+                                line-height: 30px;
+                                text-transform: initial;
+                                text-align: center;
+                                background: rgba(0,0,0,0.1);
+                                border: 1px solid rgba(0,0,0,0.2);                            
+                            }
+                            &.nav-icon-circle{
+                                .border-radius(50%);
+                            }
+                        }
+                        span.label{
+                            display: none;
+                        }
+                    }
+
+                    ul{
+                        position: absolute;
+                        left: 100%;
+                        width: @app-layout-sidebar-dropdown-width;                                
+                        z-index: 10;
+                    }
+
+                    &.openable{
+                        > a:after{display: none;}
+                    }
+                    &.title{
+                        display: none;
+                    }
+                }
+            }
+
+        }
+        
+        &.dir-right{
+            nav{
+                
+                ul{
+                    > li{
+                        &.openable{
+                            > a:after{content: "\e875";}
+                        }                    
+                    }
+                }
+                
+                 > ul{
+                     > li{
+                         
+                         ul{                            
+                            left: auto;
+                            right: 100%;
+                            
+                            > li > a{
+                                padding-left: 15px;
+                            }
+                        }                                                 
+                     }
+                 }
+            }
+        }
+        
+        
+        &.app-navigation-open-hover{
+            nav{
+                ul{
+                    > li{
+                        &.openable{
+                            &:hover{
+                                > ul{
+                                    max-height: 800px;
+                                    overflow: visible;
+                                }
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+        
+        &.mCustomScrollbar{
+            .mCustomScrollBox{
+                overflow: visible;
+                
+                .mCSB_container{
+                    overflow: visible;
+                }
+            }
+        }
+    }
+    
+    &.app-navigation-fixed{
+        float: none;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        z-index: 10 !important;
+        
+        &.app-navigation-fixed-absolute{
+            position: absolute;
+        }
+    }
+}
+
+.app.app-sidepanel-open{
+    .app-navigation.app-navigation-fixed{
+        left: -@app-layout-sidebar-width;
+    }
+}
+
+@-webkit-keyframes nav-appear{
+    0%   {opacity: 0;}
+    75%  {opacity: 0;}    
+    100% {opacity: 1;}
+}
+@keyframes nav-appear{
+    0%   {opacity: 0;}
+    75%  {opacity: 0;}    
+    100% {opacity: 1;}
+}
+
+@app-navigation-mobile-bg: @app-navigation-background;
+.app-navigation-mobile-bg{    
+    background: #2d3349;
+    background: -moz-linear-gradient(top,  #2d3349 0%, #1b202b 100%);
+    background: -webkit-linear-gradient(top,  #2d3349 0%,#1b202b 100%);
+    background: linear-gradient(to bottom,  #2d3349 0%,#1b202b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d3349', endColorstr='#1b202b',GradientType=0 );
+}
+
+@app-navigation-mobile-text-color: #EDEFF0;
+@app-navigation-mobile-text-color-hover: #FFF;
+@app-navigation-mobile-text-size: 13px;
+@app-navigation-mobile-icon-color: @app-navigation-element-icon-color;
+
+.app{
+    &.app-navigation-moblie-wrapper{
+        //background: @app-navigation-mobile-bg;        
+        .app-navigation-mobile-bg;
+        
+        .app-container{
+            .transition(all @app-default-transition-speed linear);
+        }
+    }        
+    
+    &.app-navigation-moblie-open{        
+        overflow: hidden;
+        height: 100%;
+        
+        .app-container{
+            width: 100%;
+            height: 100% !important;
+            overflow: hidden;
+            .box-shadow(0px 0px 75px 20px rgba(0,0,0,0.5));
+            
+            -ms-transform: matrix(0.9, 0, 0, 0.9, 200, 0);
+            -webkit-transform: matrix(0.9, 0, 0, 0.9, 200, 0);
+            transform: matrix(0.9, 0, 0, 0.9, 200, 0);            
+        }        
+        .app-navigation-mobile{
+            opacity: 1;
+            z-index: 0;
+        }
+    }
+    
+    .app-navigation-mobile{
+        position: absolute;
+        left: 0px;
+        top: 50px;
+        width: 200px;
+        opacity: 0;
+        .transition(opacity 0.5s linear);
+        
+        > ul{
+            float: left;
+            width: 100%;
+            list-style: none;
+            
+            > li{
+                float: left;
+                width: 100%;
+                padding: 10px 15px;
+                line-height: 20px;
+                
+                a{
+                    line-height: 30px;
+                    font-size: @app-navigation-mobile-text-size;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    color: @app-navigation-mobile-text-color;
+                    text-decoration: none;
+                    .transition(color @app-default-transition-speed linear);                    
+                    
+                    span{
+                        &[class^='icon-']{
+                            font-size: 20px;
+                            float: left;
+                            margin-right: 20px;
+                            color: @app-navigation-mobile-icon-color;
+                        }
+                        &.nav-icon-hexa{
+                            float: left;
+                            margin: 0px 10px 0px -5px;
+                            font-size: 11px;
+                            font-weight: 700;
+                            height: 30px;
+                            width: 30px;                            
+                            line-height: 30px;
+                            text-transform: initial;
+                            text-align: center;
+                            background: url(../img/navigation/hexa.png) left top no-repeat;
+                        }
+                        &.nav-icon-cube,&.nav-icon-circle{
+                            float: left;
+                            margin: 0px 10px 0px -5px;
+                            font-size: 11px;
+                            font-weight: 700;
+                            height: 30px;
+                            width: 30px;                            
+                            line-height: 30px;
+                            text-transform: initial;
+                            text-align: center;
+                            background: rgba(0,0,0,0.1);
+                            border: 1px solid rgba(0,0,0,0.2);                            
+                        }
+                        &.nav-icon-circle{
+                            .border-radius(50%);
+                        }
+                    }
+                    
+                    &:hover{
+                        color: @app-navigation-mobile-text-color-hover;
+                    }
+                }
+            }
+        }
+    }    
+    
+    
+    // Horizontal Navigation
+    .app-navigation-horizontal{
+        float: left;
+        width: 100%;
+        background: @app-navigation-horizontal-bg;
+        position: relative;
+        
+        nav{            
+            > ul{                
+                float: left;
+                width: 100%;
+                margin: 0px 0px 60px 0px;
+                padding: 0px;
+                list-style: none;                
+                padding: 10px 0px 0px 10px;
+                position: relative;
+                
+                > li{
+                    width: auto;                    
+                    
+                    > a{
+                        float: left;
+                        padding: 10px 20px 12px 15px;                        
+                        line-height: 20px;
+                        color: @app-navigation-horizontal-color;
+                        text-decoration: none;
+                        font-size: @app-navigation-horizontal-font-size;
+                        font-weight: @app-navigation-horizontal-font-weight;
+                        text-transform: uppercase;
+                        .border-radius(@app-desing-border-radius);
+                        .transition(color @app-default-transition-speed linear);
+                        
+                        span[class^="icon-"], .fa{
+                            float: left;
+                            margin-right: 10px;
+                            line-height: 20px;
+                            min-width: 20px;
+                            text-align: center;
+                            font-size: 20px;
+                        }
+                        .fa{
+                            font-size: 14px;
+                        }
+                        
+                        &:hover{
+                            color: @app-navigation-horizontal-color-hover;                            
+                        }
+                    }
+                    
+                    > ul{                                                
+                        position: absolute;
+                        width: 100%;
+                        left: 0px;
+                        top: 100%;
+                        list-style: none;
+                        background: @app-navigation-horizontal-bg-active;
+                        display: none;
+                        border-bottom: 1px solid @app-navigation-horizontal-border;
+                        padding: 10px 0px 10px 15px;
+                        
+                        > li{
+                            width: auto;
+                            
+                            > a{
+                                float: left;
+                                color: @app-navigation-horizontal-secondary-color;
+                                text-decoration: none;
+                                font-size: @app-navigation-horizontal-font-size;
+                                font-weight: @app-navigation-horizontal-font-weight;
+                                text-transform: uppercase;
+                                padding: 10px 15px;
+                                margin-right: 5px;
+                                line-height: 20px;
+                                .transition(all @app-default-transition-speed linear);
+                                .border-radius(3px);
+                                
+                                &:hover{
+                                    color: @app-navigation-horizontal-color-active;
+                                    background: @app-navigation-horizontal-secondary-bg-hover;
+                                }
+                            }
+                            
+                            &.active{
+                                > a{                                    
+                                    color: @app-navigation-horizontal-color-active;
+                                    background: @app-navigation-horizontal-secondary-bg-hover;                                    
+                                }
+                            }
+                        }
+                    }
+                    
+                    &.openable{
+                        > a{                                                        
+                            .border-radiuses(3px, 3px, 0px, 0px);
+                        }
+                        
+                        &.active{
+                            > a{
+                                background: @app-navigation-horizontal-bg-active;
+                            }
+                        }
+                    }
+                    
+                    &.active{                        
+                        > a{color: @app-navigation-horizontal-color-active;}                        
+                        > ul{display: block;}
+                    }
+                }
+            }
+            
+        }
+        
+        .container{
+            &.container-boxed{
+                margin: 0px auto;                                
+                
+                > nav{
+                    > ul{
+                        padding-left: 0px;
+                        
+                        > li > ul{
+                            padding-left: 0px;
+                        }
+                    }
+                }
+                
+                &:before{
+                    position: absolute;
+                    left: 0px;
+                    bottom: -1px;
+                    height: 61px;
+                    width: 100%;
+                    background: @app-navigation-horizontal-bg-active;                        
+                    content: " ";
+                    border-bottom: 1px solid @app-navigation-horizontal-border;
+                }
+                
+            }
+        }
+    }
+    
+    // END Horizontal Navigation
+    
+}
+
+
+
+@media (max-width: @screen-md) {
+    .app-navigation{               
+        .app-navigation-logo{
+            display: none;
+        }
+        
+        &.app-navigation-style-light{
+            border-right: 0px;
+            border-bottom: 1px solid @app-desing-border-color;            
+        }
+    }
+    
+    .app{
+        .app-navigation-horizontal{
+            display: none;
+            
+            .container{
+                &.container-boxed{
+                    padding: 0px;
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+            
+            nav{            
+                > ul{
+                    margin: 0px;
+                    padding: 0px;
+
+                    > li{
+                        width: 100%;                        
+                        
+                        > a{
+                            padding: 15px 20px 15px;
+                            width: 100%;
+                        }
+                        
+                        &.openable{
+                            &.active{
+                                > a{
+                                    background: transparent;
+                                    color: @app-navigation-horizontal-color-hover;
+                                }
+                            }
+                        }
+                        
+                        > ul{
+                            position: relative;
+                            float: left;
+                            width: 100%;
+                            padding: 5px;
+                            
+                            > li{
+                                width: 100%;
+                                margin-bottom: 5px;
+                                
+                                > a{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        &:last-child{
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+            
+            &.show{
+                display: block;
+            }
+        }
+    }
+}

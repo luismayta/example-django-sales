@@ -1,0 +1,220 @@
+.app-spinner{
+   &.loading{
+        float: left;
+        border-radius: 50%;
+        margin: 10px 5px 10px 0px;
+        width: 20px;
+        height: 20px;        
+        border: 3px solid fade(@app-desing-border-color, 10%);
+        border-top-color: @app-desing-border-color;
+        animation: spin 1s infinite linear;
+        
+        &.loading-primary{
+            border-color: fade(@app-design-primary-bg, 30%);
+            border-top-color: @app-design-primary-bg;
+        }
+        &.loading-info{
+            border-color: fade(@app-design-info-bg, 30%);
+            border-top-color: @app-design-info-bg;
+        }
+        &.loading-success{
+            border-color: fade(@app-design-success-bg, 30%);
+            border-top-color: @app-design-success-bg;
+        }
+        &.loading-warning{
+            border-color: fade(@app-design-warning-bg, 30%);
+            border-top-color: @app-design-warning-bg;
+        }
+        &.loading-danger{
+            border-color: fade(@app-design-danger-bg, 30%);
+            border-top-color: @app-design-danger-bg;
+        }
+    }
+    
+    &.pulse {
+        float: left;
+        position: relative;
+        width: 5px;
+        height: 20px;
+        margin: 10px 15px 10px 10px;        
+        background: fade(@app-desing-border-color, 10%);
+        animation: pulse 750ms infinite;
+        animation-delay: 250ms;
+        
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 12px;
+            width: 5px;
+            background: fade(@app-desing-border-color, 10%);
+            top: 50%;
+            transform: translateY(-50%);
+            animation: pulse 750ms infinite;
+        }
+        &:before {
+            left: -10px;
+        }
+        &:after {
+            left: 10px;
+            animation-delay: 250ms;
+        }
+        
+        &.pulse-primary{
+            background: @app-design-primary-bg;
+            &:before, &:after {
+                background: @app-design-primary-bg;
+            }
+        }
+        &.pulse-info{
+            background: @app-design-info-bg;
+            &:before, &:after {
+                background: @app-design-info-bg;
+            }
+        }
+        &.pulse-success{
+            background: @app-design-success-bg;
+            &:before, &:after {
+                background: @app-design-success-bg;
+            }
+        }
+        &.pulse-warning{
+            background: @app-design-warning-bg;
+            &:before, &:after {
+                background: @app-design-warning-bg;
+            }
+        }
+        &.pulse-danger{
+            background: @app-design-danger-bg;
+            &:before, &:after {
+                background: @app-design-danger-bg;
+            }
+        }
+    }
+    
+    &.scaleout {
+        float: left;
+        margin: 10px 5px 10px 0px;
+        width: 20px;
+        height: 20px;
+        background-color: @app-desing-border-color;
+        border-radius: 100%;  
+        -webkit-animation: scaleout 1s infinite ease-in-out;
+        animation: scaleout 1s infinite ease-in-out;
+        
+        &.scaleout-primary{background-color: @app-design-primary-bg;}
+        &.scaleout-info{background-color: @app-design-info-bg;}
+        &.scaleout-success{background-color: @app-design-success-bg;}
+        &.scaleout-warning{background-color: @app-design-warning-bg;}
+        &.scaleout-danger{background-color: @app-design-danger-bg;}
+    }
+    
+    &.rotating{                                
+        position: relative;
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin: 10px 5px 10px 0px;         
+        animation: rotate 1.4s infinite ease-in-out, background 1.4s infinite ease-in-out alternate;
+    }
+    
+    &.snake{
+        position: relative;
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin: 10px 5px 10px 0px;         
+        border: 3px solid @app-design-primary-bg;
+        border-right-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s infinite linear;
+    }
+    
+    &.pulsate{
+        position: relative;
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin: 10px 5px 10px 0px;         
+        border: 3px solid @app-design-primary-bg;
+        border-radius: 50%;
+        animation: pulsate 1s infinite linear;
+    }
+}
+
+
+.btn{
+    > .app-spinner{
+        margin: 4px 10px 4px 0px;        
+    }
+}
+
+@-webkit-keyframes scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+@keyframes scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {	
+  50% { 
+    background: @app-desing-border-color;
+  } 
+}
+
+@keyframes pulsate {
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+    }
+}
+@keyframes background {
+    0% {
+        background-color: @app-design-primary-bg;
+    }
+    50% {
+        background-color: @app-design-info-bg;
+    }
+    100% {
+        background-color: @app-design-success-bg;
+    }
+}

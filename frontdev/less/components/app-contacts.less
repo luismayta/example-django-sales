@@ -1,0 +1,255 @@
+.app{
+
+    .contact{
+        position: relative;
+        display: block;
+        float: left;
+        width: 100%;
+        text-decoration: none;
+        line-height: 20px;        
+        padding: 10px 0px;
+        padding-left: 30px;
+        
+        > img{
+            width: 20px;
+            position: absolute;
+            left: 0px;
+            top: 10px;            
+        }
+        
+        &.contact-lg, &.contact-xlg, &.contact-single{
+            padding: 0px;
+            padding-left: 55px;
+            margin-bottom: 20px;
+            
+            > img{
+                top: 0px;
+                width: 40px;                
+            }
+            
+            > .contact-container{
+                > a, > span, > p{
+                    display: block;
+                    width: 100%;
+                    line-height: 20px;
+                    margin: 0px;
+                    padding: 0px;
+                    display: block;
+                    text-decoration: none;
+                }
+                > a{
+                    font-weight: 600;
+                }
+                > span{
+                    color: @app-layout-base-font-color-secondary;
+                }   
+                strong{
+                    font-weight: 600;
+                }
+            }     
+            > .contact-controls{
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+        }
+        
+        &.contact-xlg{
+            padding: 0px;
+            padding-left: 70px;
+            
+            > img{
+                top: 0px;
+                width: 60px;
+            }                  
+            > .contact-controls{                
+                top: 10px;
+            }
+        }
+        
+        &.contact-rounded{
+            > img{
+                .border-radius(50%);
+            }
+        }                
+        
+        &.contact-bordered{
+            &:after{
+                position: absolute;
+                content: " ";
+                width: 26px;
+                height: 26px;
+                border: 1px solid @app-desing-border-color;
+                background: transparent;
+                left: -3px;                
+                top: 7px;
+            }
+            
+            &.contact-rounded{
+                &:after{
+                    .border-radius(50%);
+                }
+            }
+            &.contact-lg{
+                &:after{
+                    width: 46px;
+                    height: 46px;
+                    top: -3px;
+                }                
+            }
+            &.contact-xlg{
+                &:after{
+                    width: 66px;
+                    height: 66px;
+                    top: -3px;
+                }                
+            }
+        }
+        
+        &.contact-dir-right{
+            padding-left: 0px;
+            padding-right: 30px;
+            
+            > img{
+                left: auto;
+                right: 3px;
+            }
+            
+            &.contact-lg{                 
+                padding-right: 50px;
+            }
+            &.contact-xlg{
+                padding-right: 70px;
+            }
+            
+            &.contact-bordered{
+                &:after{
+                    left: auto;
+                    right: 0px;                                                
+                }
+            }
+        }
+        &.contact-faded{
+            > img{
+                .opacity(0.7);
+                .transition(opacity @app-default-transition-speed linear);
+            }
+            
+            &:hover{
+                > img{
+                    .opacity(1);
+                }
+            }
+        }
+        &.contact-single{
+            text-align: center;
+            padding: 0px;                        
+            
+            > img{
+                position: relative;
+                top: auto;
+                left: auto;
+                display: inline-block;
+                width: 60px;
+                margin: 0px 0px 15px 0px;
+            }
+            
+            &.contact-bordered{
+                &:after{
+                    left: 50%;
+                    top: -3px;
+                    margin-left: -33px;
+                    width: 66px;
+                    height: 66px;
+                }
+            }
+            .contact-controls{
+                right: 50%;
+                margin-right: 40px;
+                top: 10px;
+                
+                &.contact-controls-dir-right{
+                    right: auto;
+                    left: 50%;
+                    margin-right: 0px;
+                    margin-left: 40px;
+                }
+            } 
+        }
+        
+        &.status-online,&.status-offline,&.status-away{
+            &:before{
+                content: " ";
+                position: absolute;
+                left: -10px;
+                top: 14px;
+                width: 14px;
+                height: 14px;
+                border: 2px solid #FFF;
+                background: @app-desing-border-color;
+                .border-radius(50%);
+                z-index: 1;
+            }
+            
+            &.contact-lg{
+                &:before{
+                    width: 16px;
+                    height: 16px;
+                    top: 28px;
+                    left: 28px;
+                }
+            }
+            &.contact-xlg{
+                &:before{
+                    width: 20px;
+                    height: 20px;
+                    top: 42px;
+                    left: 42px;
+                }
+            }
+            &.contact-single{
+                &:before{
+                    width: 16px;
+                    height: 16px;
+                    left: 50%;
+                    top: 48px;
+                    margin-left: 14px;
+                }
+            }
+        }
+        &.status-online{
+            &:before{
+                background: @app-design-success-bg;
+            }            
+        }
+        &.status-away{
+            &:before{
+                background: @app-design-warning-bg;
+            }
+        }
+        &.contact-ps-controls{
+            padding-right: 50px;
+        }
+        
+        &.contact-image-only{
+            width: auto;            
+            padding: 0px;
+            margin-right: 10px;
+            
+            img{
+                position: relative;
+                top: 0px;
+                float: left;
+            }
+            &:after{
+                top: -3px;
+            }
+        }
+    }
+    
+    
+}
+
+@media (max-width: @screen-md) {
+    
+}

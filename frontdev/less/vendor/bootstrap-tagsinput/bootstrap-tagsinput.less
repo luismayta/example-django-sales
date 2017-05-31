@@ -1,0 +1,54 @@
+.app{
+    .bootstrap-tagsinput {
+      background-color: #fff;
+      border: 1px solid @app-desing-border-color;  
+      display: block;
+      float: left;
+      padding: 4px 5px;
+      color: @app-layout-base-font-color;
+      vertical-align: middle;
+      border-radius: 4px;
+      width: 100%;      
+      cursor: text;
+    }
+    .bootstrap-tagsinput input {
+      border: none;
+      box-shadow: none;
+      outline: none;
+      background-color: transparent;
+      padding: 0 6px;
+      margin: 0;
+      width: auto;
+      max-width: inherit;
+      line-height: 30px;
+    }
+    .bootstrap-tagsinput.form-control input::-moz-placeholder {
+      color: #777;
+      opacity: 1;
+    }
+    .bootstrap-tagsinput.form-control input:-ms-input-placeholder {
+      color: #777;
+    }
+    .bootstrap-tagsinput.form-control input::-webkit-input-placeholder {
+      color: #777;
+    }
+    .bootstrap-tagsinput input:focus {
+      border: none;
+      box-shadow: none;
+    }
+    .bootstrap-tagsinput .label.tag {
+      margin-right: 4px;      
+      line-height: 20px;
+      padding: 5px 10px;
+      display: block;
+      float: left;
+    }
+    .bootstrap-tagsinput .tag [data-role="remove"] {
+      margin-left: 8px;
+      cursor: pointer;
+    }
+    .bootstrap-tagsinput .tag [data-role="remove"]:after {
+      content: "x";
+      padding: 0px 2px;
+    }
+}

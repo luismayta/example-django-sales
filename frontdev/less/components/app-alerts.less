@@ -1,0 +1,121 @@
+
+.alert-build-style(@name,@background,@color,@border){
+    &.@{name}{
+        background: @background;
+        color: @color;
+        border: 1px solid @border;
+                             
+        &.alert-icon-block{
+            .alert-icon{
+                background: darken(@background, 3%);
+                border-right: 1px solid lighten(@border, 1%);                                
+            }
+            &.dir-right{
+                .alert-icon{
+                    border-right: 0px;
+                    border-left: 1px solid lighten(@border, 1%);
+                }
+            }
+        }
+    }
+}
+
+.alert{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+    line-height: 20px;
+    .border-radius();
+    
+    .alert-icon{
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        line-height: 20px;
+        text-align: center;
+        
+        span{
+            &.fa{
+                font-size: 14px;
+            }
+            &[class^='icon-']{
+                font-size: 20px;
+            }
+        }
+                
+    }
+    &.alert-icon-block{
+        padding-left: 60px;
+        position: relative;
+        
+        .alert-icon{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            min-width: 50px;
+            height: 100%;
+            padding: 15px;
+            .border-radiuses(@app-desing-border-radius, 0px, 0px, @app-desing-border-radius);
+        }
+        
+        &.dir-right{
+            padding-left: 15px;
+            padding-right: 60px;
+            
+            .alert-icon{
+                left: auto;
+                right: 0px;
+                margin-right: 0px;                
+                .border-radiuses(0px, @app-desing-border-radius, @app-desing-border-radius, 0px);
+            }
+        }
+    }
+    
+    &.alert-transparency{
+        opacity: 0.8;
+    }
+    
+    strong{font-weight: 600;}
+        
+    .alert-build-style(alert-default,@app-desing-base-element-bg,@app-layout-base-font-color,@app-desing-border-color);
+    .alert-build-style(alert-primary,@app-design-primary-bg,@app-design-primary-color,darken(@app-design-primary-bg,3%));
+    .alert-build-style(alert-success,@app-design-success-bg,@app-design-success-color,darken(@app-design-success-bg,3%));
+    .alert-build-style(alert-info,@app-design-info-bg,@app-design-info-color,darken(@app-design-info-bg,3%));
+    .alert-build-style(alert-warning,@app-design-warning-bg,@app-design-warning-color,darken(@app-design-warning-bg,3%));
+    .alert-build-style(alert-danger,@app-design-danger-bg,@app-design-danger-color,darken(@app-design-danger-bg,3%));
+    
+    &.alert-inside{
+        border: 0px;
+        .border-radius(0px);
+    }
+    
+    &.alert-dismissible{
+        > .close{
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            color: #FFF;
+            .transition(opacity @app-default-transition-speed linear);
+
+            span{
+                line-height: 20px;
+            }
+
+            .fa{
+                font-size: 14px;            
+            }
+            span[class^='icon-']{
+                font-size: 20px;
+            }
+        }
+
+        &.alert-default{
+            .close{
+                color: #000;
+            }
+        }
+    }
+}
+
