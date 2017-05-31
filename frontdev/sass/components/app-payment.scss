@@ -1,0 +1,243 @@
+.app{
+    // INVOICE PAGE
+    .invoice{
+        float: left;
+        width: 100%;
+        background: $app-desing-base-element-bg;
+        border: 1px solid $app-desing-border-color;
+        @include border-radius(5px);
+
+        .invoice-container{
+            float: left;
+            width: 100%;
+            padding: 50px 0px;
+
+            &.invoice-container-highlight{
+                background: darken($app-desing-base-element-bg,5%);
+            }
+        }
+
+        .invoice-table-total{
+            width: 300px;
+            float: right;
+        }
+        .invoice-table-highlight{
+            > td{
+                background: darken($app-desing-base-element-bg,5%);
+            }
+        }
+
+        .invoice-thanks{
+            float: left;
+            width: 100%;
+            margin-top: 50px;
+
+            .title{
+                font-size: 15px;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: $app-layout-base-font-color-heading;
+                line-height: 20px;
+            }
+            p{
+                color: $app-layout-base-font-color-secondary;
+                margin-top: 0px;
+            }
+        }
+
+        .invoice-company{
+            position: relative;
+            float: left;
+            width: 100%;
+            padding-left: 55px;
+
+            h2{
+                font-size: 15px;
+                font-weight: 700;
+                margin: 0px;
+                line-height: 20px;
+                padding: 0px;
+                text-transform: uppercase;
+                margin-top: 15px;
+                color: $app-layout-base-font-color-heading;
+            }
+            p{
+                font-size: 13px;
+                font-weight: 400;
+                margin-top: 0px;
+                color: $app-layout-base-font-color-secondary;
+            }
+
+            > img{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+        }
+        .invoice-number{
+            float: left;
+            width: 100%;
+            text-align: right;
+
+            h3{
+                font-size: 15px;
+                font-weight: 600;
+                margin: 0px;
+                line-height: 20px;
+                padding: 0px;
+                text-transform: uppercase;
+                margin-top: 15px;
+                color: $app-layout-base-font-color-heading;
+            }
+            p{
+                font-size: 13px;
+                font-weight: 400;
+                margin-top: 0px;
+                color: $app-layout-base-font-color-secondary;
+            }
+        }
+    }
+    // end INVOICE PAGE
+}
+
+@mixin build-pricing-table($name,$bg,$color){
+    &.${name}{
+        background: $bg;
+        border-color: darken($bg,5%);
+        color: $color;
+
+        .title,.price{
+            color: $color;
+        }
+        .subtitle{
+            color: $color;
+        }
+        .divider{
+            background: darken($bg,5%);
+        }
+    }
+}
+.app{
+    // PRICING TABLES
+    .pricing-table{
+        float: left;
+        width: 100%;
+        background: $app-desing-base-element-bg;
+        border: 1px solid $app-desing-border-color;
+        margin-top: 50px;
+        margin-bottom: 30px;
+
+        .title,.price,.subtitle,.divider,.features,.button-holder{
+            float: left;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title{
+            font-size: $app-layout-base-font-size + 2;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: $app-layout-base-font-color-heading;
+        }
+        .price{
+            padding-bottom: 10px;
+            line-height: 50px;
+            font-family: sans-serif;
+            font-size: $app-layout-base-font-size * 4;
+            font-weight: 700;
+            color: $app-layout-base-font-color-heading;
+        }
+        .subtitle{
+            padding-top: 0px;
+            font-style: italic;
+            color: $app-layout-base-font-color-secondary;
+        }
+        .divider{
+            height: 1px;
+            background: $app-desing-border-color;
+            padding: 0px;
+        }
+        .features{
+
+            .line{
+                float: left;
+                width: 100%;
+                line-height: 30px;
+                margin-bottom: 5px;
+
+                span{
+                    font-size: 14px;
+                    margin-right: 10px;
+
+                    &.fa-check{
+                        color: $app-design-success-bg;
+                    }
+                    &.fa-times{
+                        color: $app-design-danger-bg;
+                    }
+                }
+            }
+        }
+        .button-holder{
+            padding: 20px;
+        }
+
+        &.featured{
+            border-top: 5px solid $app-design-danger-bg;
+            margin-top: 26px;
+            z-index: 2;
+            @include box-shadow(0px 0px 12px rgba(0, 0, 0, 0.1));
+
+            .price{
+                line-height: 70px;
+                font-size: $app-layout-base-font-size * 5;
+            }
+        }
+    }
+
+    .pricing-table{
+        @include build-pricing-table(pricing-table-primary,$app-design-primary-bg,$app-design-primary-color);
+        @include build-pricing-table(pricing-table-success,$app-design-success-bg,$app-design-success-color);
+        @include build-pricing-table(pricing-table-warning,$app-design-warning-bg,$app-design-warning-color);
+        @include build-pricing-table(pricing-table-danger,$app-design-danger-bg,$app-design-danger-color);
+        @include build-pricing-table(pricing-table-info,$app-design-info-bg,$app-design-info-color);
+    }
+
+    .pricing-tables{
+        &.pricing-tables-condensed{
+            margin: 0px;
+
+            > div[class^="col-"]{
+                padding: 0px;
+                margin-left: -1px;
+
+            }
+            .pricing-table{
+                @include box-shadow(none);
+            }
+        }
+    }
+    // END PRICING TABLES
+
+}
+
+@media (max-width: $screen-lg) {
+    .app{
+        .invoice{
+            .invoice-container{
+                padding: 30px 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .app{
+        .invoice{
+            .invoice-table-total{
+                width: 100%;
+            }
+        }
+    }
+}
