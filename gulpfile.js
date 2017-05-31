@@ -15,31 +15,6 @@ var gulp = require('gulp'),
     //cleanCSS = require('gulp-clean-css'),
     //htmlmin = require('gulp-htmlmin');
 
-// var paths = {
-//   bower: {
-//         jquery: ['./bower_components/jquery/dist/jquery.min.js','./frontdev/js/vendor/jquery/jquery.min.js']
-//   },
-//   fonts: {
-//     src: basePaths.src + 'font/',
-//     dist: basePaths.dist + 'font/'
-//   },
-//   images: {
-//     src: basePaths.src + 'img/',
-//     dist: basePaths.dist + 'img/'
-//   },
-//   scripts: {
-//     src: basePaths.src + 'js/',
-//     dist: basePaths.dist + 'js/'
-//   },
-//   styles: {
-//     css: basePaths.src + 'css/',
-//     src: basePaths.src + 'sass/',
-//     dist: basePaths.dist + 'css/'
-//   },
-//   templates: {
-//     src: basePaths.src + 'template/',
-//   }
-// };
 var path = {
     bower: {
         jquery: ['./bower_components/jquery/dist/jquery.min.js','./frontdev/js/vendor/jquery/jquery.min.js']
@@ -58,14 +33,14 @@ var path = {
         less: basePaths.src + '/less/styles.less',
         fonts: basePaths.src + 'less/fonts/**/*.*',
         img: basePaths.src + 'img/**/*.*',
-        assets: basePaths.src + 'assets/*.*'
+        assets: basePaths.src + 'assets/**/*.*'
     },
     watch: { // watching files
         js: basePaths.src + 'js/**/*.js',
         less: basePaths.src + 'less/**/*.less',
         fonts: basePaths.src + 'less/fonts/**/*.*',
         img: basePaths.src + 'img/**/*.*',
-        assets: basePaths.src + 'assets/*.*'
+        assets: basePaths.src + 'assets/**/*.*'
     },
     clean: [basePaths.src + 'css']
 };
