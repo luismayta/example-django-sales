@@ -61,8 +61,27 @@
                             </li>
                         </ul>
                       {% else %}
-        <p><a class="btn waves-effect green" href="{% url 'home_app:login' %}">login</a></p>
-        <p><a class="btn waves-effect pink" href="{% url 'home_app:signup' %}">signup</a></p>
+
+                        <ul class="app-header-buttons pull-right">
+                            <li>
+                              <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
+                                    <img src="{% static "assets/images/users/user_1.jpg" %}" alt="{{ user.get_username }}">
+                                    <div class="contact-container">
+                                        <a href="{% url 'home_app:login' %}">Login</a>
+                                        <span>Invitado</span>
+                                    </div>
+                                    <div class="contact-controls">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown"><span class="icon-cog"></span></button>
+                                            <ul class="dropdown-menu dropdown-left">
+                                                <li class="divider"></li>
+                                                <li><a href="{% url 'home_app:signup' %}"><span class="icon-exit-right"></span> Signup</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                       {% endif %}
                     </div>
                 </div>
