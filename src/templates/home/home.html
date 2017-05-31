@@ -1,7 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Boooya - Blog - Main</title>
+
+        <title>
+        {% block title %}
+        Sales Retail
+        {% endblock title %}
+        </title>
 
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -12,7 +18,7 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="{% static "css/styles.css" %}">
         <!-- EOF CSS INCLUDE -->
     </head>
     <body>
@@ -28,13 +34,13 @@
                         <ul class="app-header-buttons visible-mobile">
                             <li><a href="#" class="btn btn-link btn-icon" data-navigation-horizontal-toggle="true"><span class="icon-menu"></span></a></li>
                         </ul>
-                        <a href="index.html" class="app-header-logo app-header-logo-light app-header-logo-condensed">Project</a>
+                        <a href="/" class="app-header-logo app-header-logo-light app-header-logo-condensed">Project</a>
 
                         {% if user.is_authenticated %}
                         <ul class="app-header-buttons pull-right">
                             <li>
                               <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
-                                    <img src="assets/images/users/user_1.jpg" alt="{{ user.get_username }}">
+                                    <img src="{% static "assets/images/users/user_1.jpg" %}" alt="{{ user.get_username }}">
                                     <div class="contact-container">
                                         <a href="#">{{ user.get_username }}</a>
                                         <span>Administrator</span>
@@ -100,7 +106,7 @@
                             <div class="col-md-8">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/preview/img-2.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/preview/img-2.jpg" %}" alt=""></a>
                                         <div class="tile-image-container">
                                             <span class="label label-success">Business</span>
                                         </div>
@@ -114,7 +120,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/preview/img-3.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/preview/img-3.jpg" %}" alt=""></a>
                                         <div class="tile-image-container">
                                             <span class="label label-warning">Sport</span>
                                         </div>
@@ -126,7 +132,7 @@
                                 </div>
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <img src="assets/images/preview/img-4.jpg" alt="">
+                                        <img src="{% static "assets/images/preview/img-4.jpg" %}" alt="">
                                         <div class="tile-image-container">
                                             <span class="label label-danger">Economics</span>
                                         </div>
@@ -140,7 +146,7 @@
                         </div>
 
                         <div class="app-blog-banner">
-                            <img src="assets/banners/default_728x90.jpg" alt="banner">
+                            <img src="{% static "assets/banners/default_728x90.jpg" %}" alt="banner">
                         </div>
 
                         <h4 class="text-uppercase text-bold text-lg heading-line-below margin-bottom-20">Business News</h4>
@@ -149,7 +155,8 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/business_1.jpg" alt=""></a>
+                                      <img src="{% static "assets/banners/default_728x90.jpg" %}" alt="banner">
+                                        <a href="#"><img src="{% static "assets/images/news/business_1.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Aliquam tempor ligula</a>
@@ -161,7 +168,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/business_2.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/news/business_2.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Pellentesque iaculis varius</a>
@@ -173,7 +180,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/business_3.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/news/business_3.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Nulla tempus malesuada turpis</a>
@@ -190,7 +197,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/sport_1.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/news/sport_1.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Etiam iaculis justo scelerisque</a>
@@ -202,7 +209,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/sport_2.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/news/sport_2.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Aliquam semper lectus tellus</a>
@@ -214,7 +221,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/sport_3.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/news/sport_3.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Maecenas tristique consectetur</a>
@@ -231,7 +238,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/city_1.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/news/city_1.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Suspendisse consectetur</a>
@@ -243,7 +250,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/city_2.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/news/city_2.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Aliquam auctor lobortis</a>
@@ -255,7 +262,7 @@
                             <div class="col-md-4">
                                 <div class="tile-basic">
                                     <div class="tile-image">
-                                        <a href="#"><img src="assets/images/news/city_3.jpg" alt=""></a>
+                                        <a href="#"><img src="{% static "assets/images/news/city_3.jpg" %}" alt=""></a>
                                     </div>
                                     <div class="tile-content">
                                         <a href="#" class="tile-title">Curabitur tortor nisi</a>
@@ -290,16 +297,16 @@
         <!-- END APP WRAPPER -->
 
         <!-- IMPORTANT SCRIPTS -->
-        <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/vendor/bootstrap/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
-        <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script type="text/javascript" src="{% static "js/vendor/jquery/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/vendor/jquery/jquery-ui.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/vendor/bootstrap/bootstrap.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/vendor/moment/moment.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js" %}"></script>
         <!-- END IMPORTANT SCRIPTS -->
         <!-- APP SCRIPTS -->
-        <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/app_plugins.js"></script>
-        <script type="text/javascript" src="js/app_demo.js"></script>
+        <script type="text/javascript" src="{% static "js/app.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/app_plugins.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/app_demo.js" %}"></script>
         <!-- END APP SCRIPTS -->
     </body>
 </html>
