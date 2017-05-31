@@ -1,4 +1,4 @@
-$charset "UTF-8";
+$charset: "UTF-8";
 
 // import Open Sans fonts
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
@@ -7,30 +7,30 @@ $charset "UTF-8";
 @import "variables";
 
 // vendors
-@import "vendor/bootstrap/bootstrap.min";
-@import "vendor/linearicons/linearicons";
-@import "vendor/font-awesome/font-awesome";
-@import "vendor/animate/animate.min";
+// @import "vendor/bootstrap/bootstrap.min";
+// @import "vendor/linearicons/linearicons";
+// @import "vendor/font-awesome/font-awesome";
+// @import "vendor/animate/animate.min";
 
-@import "vendor/customscrollbar/jquery.mCustomScrollbar.min";
-@import "vendor/bootstrap-select/bootstrap-select";
-@import "vendor/select2/select2";
-@import "vendor/bootstrap-datetimepicker/bootstrap-datetimepicker-build";
-@import "vendor/datatables/dataTables.bootstrap";
-@import "vendor/summernote/summernote";
-@import "vendor/sweetalert/sweetalert";
-@import "vendor/dropzone/dropzone";
-@import "vendor/nestable/nestable";
-@import "vendor/jvectormap/jquery-jvectormap";
-@import "vendor/codemirror/codemirror";
-@import "vendor/syntaxhighlighter/shCoreDefault";
-@import "vendor/morris/morris";
-@import "vendor/rickshaw/rickshaw";
-@import "vendor/cropper/cropper";
-@import "vendor/fullcalendar/fullcalendar";
-@import "vendor/bootstrap-tagsinput/bootstrap-tagsinput";
-@import "vendor/bootstrap-daterange/daterangepicker";
-@import "vendor/bootstrap-tour/bootstrap-tour";
+// @import "vendor/customscrollbar/jquery.mCustomScrollbar.min";
+// @import "vendor/bootstrap-select/bootstrap-select";
+// @import "vendor/select2/select2";
+// @import "vendor/bootstrap-datetimepicker/bootstrap-datetimepicker-build";
+// @import "vendor/datatables/dataTables.bootstrap";
+// @import "vendor/summernote/summernote";
+// @import "vendor/sweetalert/sweetalert";
+// @import "vendor/dropzone/dropzone";
+// @import "vendor/nestable/nestable";
+// @import "vendor/jvectormap/jquery-jvectormap";
+// @import "vendor/codemirror/codemirror";
+// @import "vendor/syntaxhighlighter/shCoreDefault";
+// @import "vendor/morris/morris";
+// @import "vendor/rickshaw/rickshaw";
+// @import "vendor/cropper/cropper";
+// @import "vendor/fullcalendar/fullcalendar";
+// @import "vendor/bootstrap-tagsinput/bootstrap-tagsinput";
+// @import "vendor/bootstrap-daterange/daterangepicker";
+// @import "vendor/bootstrap-tour/bootstrap-tour";
 
 // import components
 @import "helpers/mixins";

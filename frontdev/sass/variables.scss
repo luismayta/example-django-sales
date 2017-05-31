@@ -2,7 +2,7 @@
 $app-default-transitions: 1; // set 0 to disable transitions
 $app-default-transition-speed: 100ms;
 
-// media queries 
+// media queries
 $screen-xs: 480px;
 $screen-sm: 768px;
 $screen-md: 992px;
@@ -47,20 +47,19 @@ $app-desing-base-element-link: $app-layout-base-font-color-heading;
 $app-desing-base-element-link-hover: $app-desing-base-link-color;
 $app-desing-base-element-link-active: darken($app-desing-base-link-color, 10%);
 
-    // main theme colors
-    $app-design-primary-bg: darken($app-design-main-color,2%);
-    $app-design-primary-color: #FFF;
-    $app-design-success-bg: #76AB3C;//#84BF43;
-    $app-design-success-color: #FFF;
-    $app-design-info-bg: #4FB5DD;
-    $app-design-info-color: #FFF;
-    $app-design-warning-bg: #F69F00;
-    $app-design-warning-color: #FFF;
-    $app-design-danger-bg: #F04E51;
-    $app-design-danger-color: #FFF;
-    
-    // block
-    $app-design-block-bg: #FFF;
-    $app-design-block-border: $app-desing-border-color;
-    $app-design-block-border-radius: 5px;
+// main theme colors
+$app-design-primary-bg: darken($app-design-main-color,2%);
+$app-design-primary-color: #FFF;
+$app-design-success-bg: #76AB3C;//#84BF43;
+$app-design-success-color: #FFF;
+$app-design-info-bg: #4FB5DD;
+$app-design-info-color: #FFF;
+$app-design-warning-bg: #F69F00;
+$app-design-warning-color: #FFF;
+$app-design-danger-bg: #F04E51;
+$app-design-danger-color: #FFF;
 
+// block
+$app-design-block-bg: #FFF;
+$app-design-block-border: $app-desing-border-color;
+$app-design-block-border-radius: 5px;
