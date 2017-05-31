@@ -1,7 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Boooya - Login</title>
+        <title>
+        {% block title %}
+        Sales Retail
+        {% endblock title %}
+        </title>
 
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -12,7 +17,7 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="{% static "css/styles.css" %}">
         <!-- EOF CSS INCLUDE -->
     </head>
     <body>
@@ -24,7 +29,7 @@
             <div class="app-container">
 
                 <div class="app-login-box">
-                    <div class="app-login-box-user"><img src="img/user/no-image.png" alt="John Doe"></div>
+                    <div class="app-login-box-user"><img src="{% static "img/user/no-image.png" %}" alt="John Doe"></div>
                     <div class="app-login-box-title">
                         <div class="title">Already a member?</div>
                         <div class="subtitle">Sign in to your account</div>
@@ -69,16 +74,16 @@
         <!-- END APP WRAPPER -->
 
         <!-- IMPORTANT SCRIPTS -->
-        <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/vendor/bootstrap/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
-        <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script type="text/javascript" src="{% static "js/vendor/jquery/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/vendor/jquery/jquery-ui.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/vendor/bootstrap/bootstrap.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/vendor/moment/moment.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js" %}"></script>
         <!-- END IMPORTANT SCRIPTS -->
         <!-- APP SCRIPTS -->
-        <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/app_plugins.js"></script>
-        <script type="text/javascript" src="js/app_demo.js"></script>
+        <script type="text/javascript" src="{% static "js/app.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/app_plugins.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/app_demo.js" %}"></script>
         <!-- END APP SCRIPTS -->
     </body>
 </html>
