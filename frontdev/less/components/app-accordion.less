@@ -1,0 +1,91 @@
+@app-accordion-heading-height: 50px;
+@app-accordion-heading-background: @app-desing-base-element-bg;
+@app-accordion-heading-background-hover: @app-desing-base-element-bg-hover;
+@app-accordion-border-color: @app-desing-border-color;
+
+.app-accordion{
+    float: left;
+    width: 100%;    
+    
+    .item{
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        height: @app-accordion-heading-height;
+        border: 1px solid @app-accordion-border-color;
+        border-bottom: 0px;        
+        //.transition(max-height @app-default-transition-speed linear);
+        
+        .heading{
+            float: left;
+            width: 100%;
+            height: @app-accordion-heading-height;
+            background: @app-accordion-heading-background;
+            padding: 0px 20px;
+            cursor: pointer;
+            .transition(background @app-default-transition-speed linear);
+            .noselect;
+            
+            .title{
+                float: left;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: @app-accordion-heading-height;                                
+                margin: 0px;
+                padding: 0px;                
+            }
+            
+            &:hover{
+                background: @app-accordion-heading-background-hover;
+            }
+        }
+        .content{
+            float: left;
+            width: 100%;
+            
+            .block{
+                padding: 15px;
+                border: 0px;
+            }
+        }
+        
+        &.open{
+            //max-height: 1000px;
+            
+            .heading{
+                border-bottom: 1px solid darken(@app-accordion-heading-background-hover,5%);
+                background: @app-accordion-heading-background-hover;
+            }
+        }
+        
+        &:first-child{
+            .border-radiuses(@app-desing-border-radius,@app-desing-border-radius,0px,0px);
+        }        
+        &:last-child{
+            border-bottom: 1px solid @app-accordion-border-color;
+            .border-radiuses(0px,0px,@app-desing-border-radius,@app-desing-border-radius);
+        }
+    }
+    
+    &.app-accordion-simple{
+        .item{
+            &.open{
+                height: auto;
+            }
+        }
+    }
+}
+.app{
+    .app-sidebar{
+        > .app-accordion{
+            overflow-y: hidden;
+            background: @app-desing-base-element-bg;
+            border-left: 1px solid @app-desing-border-color;
+            
+            .item{
+                border-left: 0px;
+                border-right: 0px;
+            }
+        }
+    }
+}

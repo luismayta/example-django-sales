@@ -1,0 +1,198 @@
+    @app-cr-bg: @app-desing-base-element-bg;
+    @app-cr-color: @app-layout-base-font-color;
+    @app-cr-border: @app-desing-border-color;
+   
+    .app-checkbox, .app-radio{
+        line-height: 20px;
+        margin: 10px 0px;
+        float: left;
+        width: 100%;
+        
+        label{
+            padding-left: 30px;
+            font-weight: 400;
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 0px;
+            
+            input{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 20px;
+                height: 20px;
+                opacity: 0;
+                z-index: 3;
+                margin: 0px;
+                cursor: pointer;
+                
+                &:checked + span{
+                    &:after{
+                        .transform(scale(1, 1));
+                    }
+                }
+                
+                &:disabled + span{
+                    opacity: 0.5;
+                }
+            }
+            
+            span{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 20px;
+                height: 20px;
+                
+                &:before{
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    z-index: 1;
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid @app-cr-border;
+                    background: @app-cr-bg;          
+                    content: " ";
+                }
+
+                &:after{
+                    position: absolute;                    
+                    z-index: 2;               
+                    color: @app-cr-color;
+                    .transform(scale(0, 0));
+                    .transition(transform @app-default-transition-speed cubic-bezier(0.8, -0.33, 0.2, 1.33));
+                }
+            }
+        }
+        
+        &.inline{
+            display: inline-block;
+            margin-right: 20px;
+            float: none;
+            width: auto;
+            
+            &:last-child{
+                margin-right: 0px;
+            }
+        }
+    }
+    
+    .app-checkbox{
+        label{            
+            span{
+                &:after{                        
+                    content: "\f00c";
+                    font-family: "FontAwesome";
+                    font-size: 14px;
+                    text-align: center;                    
+                    line-height: 20px;
+                    left: 0px;
+                    top: 0px;
+                    width: 20px;
+                    height: 20px;                    
+                }
+            }
+        }
+        
+        &.success{
+            label{
+                color: @app-design-success-bg;
+                
+                span{
+                    &:before{border-color: @app-design-success-bg;}
+                    &:after{color: @app-design-success-bg;}
+                }
+            }             
+        }
+        &.warning{
+            label{
+                color: @app-design-warning-bg;
+                
+                span{
+                    &:before{border-color: @app-design-warning-bg;}
+                    &:after{color: @app-design-warning-bg;}
+                }
+            }   
+        }
+        &.danger{
+            label{
+                color: @app-design-danger-bg;
+                
+                span{
+                    &:before{border-color: @app-design-danger-bg;}
+                    &:after{color: @app-design-danger-bg;}
+                }
+            }   
+        }
+    }
+    
+    .app-radio{
+        label{                        
+            span{                
+                &:after{                 
+                    content: " ";
+                    background: @app-cr-color;                 
+                    width: 12px;
+                    height: 12px;
+                    left: 4px;
+                    top: 4px;                    
+                }
+            }
+        }
+        
+        &.round{
+            label{
+                span{
+                    &:before,&:after{
+                        .border-radius(50%);
+                    }
+                }
+            }
+        }
+        
+        &.success{
+            label{
+                color: @app-design-success-bg;
+                
+                span{
+                    &:before{border-color: @app-design-success-bg;}
+                    &:after{background: @app-design-success-bg;}
+                }
+            }            
+        }
+        &.warning{
+            label{
+                color: @app-design-warning-bg;
+                
+                span{
+                    &:before{border-color: @app-design-warning-bg;}
+                    &:after{background: @app-design-warning-bg;}
+                }
+            }
+        }
+        &.danger{
+            label{
+                color: @app-design-danger-bg;
+                
+                span{
+                    &:before{border-color: @app-design-danger-bg;}
+                    &:after{background: @app-design-danger-bg;}
+                }
+            }
+        }
+    }
+    
+    .input-group{
+        .input-group-addon{
+            .app-checkbox, .app-radio{
+                margin: 0px;
+                
+                label{
+                    float: left;
+                    padding-left: 20px;
+                    margin-top: -10px;
+                }
+            }
+        }
+    }        

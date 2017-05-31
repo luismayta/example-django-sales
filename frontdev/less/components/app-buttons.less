@@ -1,0 +1,262 @@
+.make-btn(@name, @background, @color, @border: darken(@background,3%)){
+    &.@{name}{
+        border-color: @border;
+        background: @background;
+        color: @color;
+
+        &:hover,&.active,&:active, &:active:focus{
+            border-color: darken(@border, 5%);
+            background: darken(@background, 3%);
+            color: darken(@color,5%);                        
+        }
+        
+        &:focus{
+            border-color: darken(@border, 5%);
+            background: darken(@background, 3%);
+            color: @color;
+        }
+        
+        &:focus,&.active,&:active, &:active:focus{
+            .box-shadow(inset 0px 1px 2px rgba(0,0,0,0.1));
+            
+            &.btn-icon-fixed{
+                span{
+                    border-color: darken(@border, 5%);
+                    .box-shadow(inset 0px 1px 2px rgba(0,0,0,0.1));                    
+                }
+            }
+            
+            & when (@name = btn-link) {
+                .box-shadow(none);
+            }
+        }
+        
+        &.btn-clean{
+            background: transparent;
+            color: @background;
+            
+            & when (@name = btn-default) {
+                color: @app-layout-base-font-color;
+            }
+            
+            &:hover,&:active,&:active:focus{
+                color: @color;
+                background: @background;
+                border-color: @background;                
+                
+                & when (@name = btn-default) {
+                    border-color: darken(@border,10%);
+                    color: darken(@app-layout-base-font-color,10%);
+                }
+            }
+        }
+        
+        &.btn-rounded{
+            .border-radius(20px);
+        }
+        &.btn-icon-fixed{
+            span[class^="icon-"],span.fa{
+                border-right: 1px solid @border;
+                background: darken(@background, 3%);
+            }
+        }
+    }
+}
+.make-open-btn(@name, @background, @color, @border: darken(@background,3%)){
+    border-color: darken(@border, 5%);
+    background: darken(@background, 3%);
+    color: @color;     
+}
+.btn{
+    padding: 5px 20px;
+    line-height: 28px;    
+    text-decoration: none;        
+    font-weight: 600;    
+    .transition(all @app-default-transition-speed ease-in);    
+    
+    .make-btn(btn-default, #FFF, @app-layout-base-font-color, @app-desing-border-color);
+    .make-btn(btn-primary, @app-design-primary-bg, @app-design-primary-color);
+    .make-btn(btn-success, @app-design-success-bg, @app-design-success-color);
+    .make-btn(btn-info, @app-design-info-bg, @app-design-info-color);
+    .make-btn(btn-warning, @app-design-warning-bg, @app-design-warning-color);
+    .make-btn(btn-danger, @app-design-danger-bg, @app-design-danger-color);
+    .make-btn(btn-link, transparent, @app-layout-base-font-color-secondary, transparent);
+    
+    .make-btn(btn-facebook, #4867aa, #FFF);
+    .make-btn(btn-twitter, #00abf1, #FFF);
+    
+    span[class^='icon-']{
+        margin: 0px 10px 0px -5px;
+        float: left;
+        line-height: 28px;
+        font-size: 20px;
+        
+        &.pull-right{
+            margin: 0px -5px 0px 10px;
+            float: right;
+        }
+    }
+    
+    span.fa{
+        font-size: 14px;
+    }
+    
+    &.btn-default{
+        span[class^="icon-"],.fa{
+            color: @app-layout-base-font-color-secondary;
+        }
+    }
+    
+    &.btn-icon-fixed{
+        position: relative;
+        padding-left: 60px;
+        
+        span[class^='icon-'],span.fa{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 40px;
+            height: 38px;
+            line-height: 38px;            
+            .border-radiuses(@app-desing-border-radius, 0px, 0px, @app-desing-border-radius);                            
+        }
+        span[class^='icon-']{
+            margin-left: 0px;
+        }
+        .icon-text{
+            font-family: @app-layout-base-font-family !important;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        
+        &.btn-lg{
+            padding-left: 75px;
+            
+            span[class^='icon-'],span.fa{
+                height: 48px;
+                width: 50px;
+                line-height: 48px;
+            }
+        }
+        &.btn-sm{
+            padding-left: 45px;
+            
+            span[class^='icon-'],span.fa{
+                height: 28px;
+                width: 30px;
+                line-height: 28px;
+            }
+        }
+        &.btn-xs{
+            padding-left: 35px;
+            
+            span[class^='icon-'],span.fa{
+                height: 24px;
+                width: 26px;
+                line-height: 24px;
+            }
+        }
+    }
+    
+    &.btn-lg{
+        padding: 10px 30px;
+        font-size: @app-layout-base-font-size;
+        text-transform: uppercase;
+    
+        &.btn-icon{width: 50px;}
+    }
+    &.btn-sm{
+        padding: 0px 15px; margin: 5px 0px;
+        
+        &.btn-icon{width: 30px;}
+    }
+    &.btn-xs{
+        padding: 2px 10px;line-height: 20px;
+        
+        &.btn-icon{width: 24px;}
+    }
+    
+    &.btn-icon{
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 40px;                
+        
+        span{
+            line-height: 28px;
+            float: left;
+            width: 100%;            
+            text-align: center;
+            margin: 0px;
+            font-size: 20px;
+            
+            &.fa{
+                font-size: 14px;
+            }
+        }
+    }    
+}
+
+.open{
+    > .dropdown-toggle{        
+        .make-btn(btn-default, #FFF, @app-layout-base-font-color, @app-desing-border-color);
+        .make-btn(btn-primary, @app-design-primary-bg, @app-design-primary-color);
+        .make-btn(btn-success, @app-design-success-bg, @app-design-success-color);
+        .make-btn(btn-info, @app-design-info-bg, @app-design-info-color);
+        .make-btn(btn-warning, @app-design-warning-bg, @app-design-warning-color);
+        .make-btn(btn-danger, @app-design-danger-bg, @app-design-danger-color);
+        .make-btn(btn-link, transparent, @app-layout-base-font-color-secondary, transparent);        
+    }    
+}
+
+.btn-group{
+    &.open{
+        .dropdown-toggle{
+            .box-shadow(inset 0px 1px 2px rgba(0,0,0,0.1));
+        }
+    } 
+    
+    &.btn-group-justified{
+        .btn-group:nth-child(n+2){
+            .btn{margin-left: -1px;}
+        }
+        .btn-group:nth-child(n+3){
+            .btn{margin-left: -2px;}
+        }
+        .btn-group:nth-child(n+4){
+            .btn{margin-left: -3px;}
+        }
+        .btn-group:nth-child(n+5){
+            .btn{margin-left: -4px;}
+        }
+    }
+    
+    > .btn + .dropdown-toggle{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+.btn-group > .btn:hover, 
+.btn-group-vertical > .btn:hover, 
+.btn-group > .btn:focus, 
+.btn-group-vertical > .btn:focus, 
+.btn-group > .btn:active, 
+.btn-group-vertical > .btn:active, 
+.btn-group > .btn.active, 
+.btn-group-vertical > .btn.active{
+    z-index: 0;
+}
+
+.input-group-btn{
+    > .btn{
+        &:hover, &:focus, &:active{
+            z-index: 0;
+        }
+    }
+
+    &:first-child{
+        > .btn,
+        > .btn-group{
+            margin-right: -2px;
+        }
+    } 
+}

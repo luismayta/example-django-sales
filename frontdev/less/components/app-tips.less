@@ -1,0 +1,118 @@
+.app{
+    
+    .app-tip{
+        float: left;
+        width: 100%;
+        padding: 5px 10px;
+        line-height: 20px;
+        background: @app-desing-base-element-bg;
+        color: @app-layout-base-font-color;
+        border: 1px solid @app-desing-border-color;
+        margin-bottom: 10px;        
+        
+        &.app-tip-runing{               
+            overflow: hidden;            
+            
+            .app-tip-runner{                
+                -moz-transform:translateX(100%);
+                -webkit-transform:translateX(100%);	
+                transform:translateX(100%);
+                
+                -moz-animation: scroll-left 10s linear infinite;
+                -webkit-animation: scroll-left 10s linear infinite;
+                animation: scroll-left 10s linear infinite;                
+                
+                &.app-tip-runner-right{                             
+                    -moz-transform:translateX(-100%);
+                    -webkit-transform:translateX(-100%);	
+                    transform:translateX(-100%);
+                   
+                    -moz-animation: scroll-right 10s linear infinite;
+                    -webkit-animation: scroll-right 10s linear infinite;
+                    animation: scroll-right 10s linear infinite;
+                }
+                
+                &.app-tip-speed-slow{
+                    -moz-animation-duration: 20s;
+                    -webkit-animation-duration: 20s;
+                    animation-duration: 20s;
+                }
+            }
+        }
+        
+        &.app-tip-noborder{
+            border: 0px;
+        }                
+        
+        &.app-tip-primary{
+            background: @app-design-primary-bg;
+            color: @app-design-primary-color;
+            border-color: darken(@app-design-primary-bg, 5%);
+        }
+        &.app-tip-info{
+            background: @app-design-info-bg;
+            color: @app-design-info-color;
+            border-color: darken(@app-design-info-bg, 5%);
+        }
+        &.app-tip-success{
+            background: @app-design-success-bg;
+            color: @app-design-success-color;
+            border-color: darken(@app-design-success-bg, 5%);
+        }
+        &.app-tip-warning{
+            background: @app-design-warning-bg;
+            color: @app-design-warning-color;
+            border-color: darken(@app-design-warning-bg, 5%);
+        }
+        &.app-tip-danger{
+            background: @app-design-danger-bg;
+            color: @app-design-danger-color;
+            border-color: darken(@app-design-danger-bg, 5%);
+        }
+        &.app-tip-lg{
+            padding: 10px;
+        }
+    }
+    
+}
+
+@-moz-keyframes scroll-left {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes scroll-left {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes scroll-left {
+    0%{ 
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%); 		
+    }
+    100% { 
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%); 
+    }
+}
+@-moz-keyframes scroll-right {
+    0%   { -moz-transform: translateX(-100%); }
+    100% { -moz-transform: translateX(100%); }
+}
+@-webkit-keyframes scroll-right {
+    0%   { -webkit-transform: translateX(-100%); }
+    100% { -webkit-transform: translateX(100%); }
+}
+@keyframes scroll-right {
+    0%   { 
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%); 		
+    }
+    100% { 
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%); 
+    }
+}

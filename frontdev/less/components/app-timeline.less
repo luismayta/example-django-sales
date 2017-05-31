@@ -1,0 +1,163 @@
+.app{
+    
+    .app-timeline{
+        padding: 20px 0px;
+        float: left;
+        width: 100%;
+        
+        .app-timeline-item{
+            float: left;
+            width: 100%;
+            padding-left: 70px;
+            position: relative;
+            padding-bottom: 30px;
+            
+            > .user{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: 2;
+                
+                > img{
+                    width: 45px;
+                    height: 45px;
+                    padding: 2px;
+                    border: 1px solid @app-desing-border-color;
+                    .border-radius(50%);
+                    background: #FFF;
+                }
+            }
+            > .content{
+                padding: 12px 20px 15px;
+                float: left;
+                width: 100%;
+                background: @app-desing-base-element-bg;
+                border: 1px solid @app-desing-border-color;
+                .border-radius();
+                
+                .title{                    
+                    margin-bottom: 10px;
+                    foat: left;
+                    width: 100%;
+                    color: @app-layout-base-font-color-secondary;
+                    
+                    > a{                        
+                        font-weight: 600;
+                    }                    
+                }                
+                strong{
+                    font-weight: 600;
+                    color: @app-layout-base-font-color-heading;
+                }
+                
+                .comments{
+                    position: relative;
+                    float: left;
+                    width: 100%;                    
+                    margin-top: 20px;
+                    margin-bottom: 5px;
+                    border: 1px solid darken(@app-desing-base-element-bg,8%);
+                    
+                    .total{
+                        float: left;
+                        width: 100%;
+                        line-height: 30px;
+                        background: darken(@app-desing-base-element-bg,5%);
+                        padding: 10px 20px;
+                        border-bottom: 1px solid darken(@app-desing-base-element-bg,8%);
+                        font-weight: 600;
+                    }
+                    .comment{
+                        float: left;
+                        width: 100%;
+                        padding: 15px 20px 0px;
+                        background: darken(@app-desing-base-element-bg,3%);
+                        border-bottom: 1px dashed @app-desing-border-color;
+                        
+                        &:last-child{
+                            border-bottom: 0px;
+                        }
+                    }
+                    .form{
+                        display: block;
+                        float: left;
+                        background: darken(@app-desing-base-element-bg,5%);
+                        padding: 10px 15px;
+                    }
+                    &:after, &:before {
+                            bottom: 100%;
+                            left: 20px;
+                            border: solid transparent;
+                            content: " ";
+                            height: 0;
+                            width: 0;
+                            position: absolute;
+                            pointer-events: none;
+                    }
+
+                    &:after {
+                            border-color: rgba(136, 183, 213, 0);
+                            border-bottom-color: darken(@app-desing-base-element-bg,5%);
+                            border-width: 8px;
+                            margin-left: -8px;
+                    }
+                    &:before {
+                            border-color: rgba(194, 225, 245, 0);
+                            border-bottom-color: darken(@app-desing-base-element-bg,10%);
+                            border-width: 9px;
+                            margin-left: -9px;
+                    }
+                }
+            }            
+            &:after{
+                position: absolute;
+                z-index: 1;
+                width: 26px;
+                height: 1px;
+                content: " ";
+                left: 45px;
+                top: 24px;
+                background: @app-desing-border-color;
+            }
+            &:before{
+                position: absolute;
+                z-index: 1;
+                width: 1px;
+                height: 100%;
+                content: " ";
+                left: 23px;
+                top: 0px;
+                background: @app-desing-border-color;
+            }
+        }
+        
+        .app-timeline-more{
+            float: left;
+            width: 100%;
+            height: 50px;            
+            position: relative;
+            
+            > a{
+                position: absolute;
+                width: 45px;
+                height: 45px;
+                background: #FFF;
+                border: 1px solid @app-desing-border-color;
+                .border-radius(50%);
+                line-height: 32px;
+                font-size: 21px;
+                text-align: center;
+                font-weight: bold;
+                text-decoration: none;
+                color: @app-layout-base-font-color;
+                .transition(background 100ms linear);
+                
+                &:hover{
+                    color: @app-layout-base-font-color-heading;
+                    background: #F5F5F5;
+                }
+            }
+        }
+    }
+    
+}

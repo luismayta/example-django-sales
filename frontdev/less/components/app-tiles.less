@@ -1,0 +1,303 @@
+@app-tile-basic-bg: @app-desing-base-element-bg;
+@app-tile-basic-bg-hover: @app-desing-base-element-bg-hover;
+@app-tile-basic-font-color: @app-layout-base-font-color;
+@app-tile-basic-title-color: @app-layout-base-font-color-heading;
+@app-tile-basic-sub-color: @app-layout-base-font-color-secondary;
+
+.app{
+    
+    .tile-basic{
+        float: left;
+        width: 100%;
+        background: @app-tile-basic-bg;
+        color: @app-tile-basic-font-color;
+        margin-bottom: 20px;
+        position: relative;
+        //.border-radius();
+        
+        .tile-image{
+            display: block;
+            float: left;
+            width: 100%;
+            position: relative;
+            overflow: hidden;            
+            
+            img{
+                width: 100%;
+            }
+            
+            .tile-image-container{
+                width: 100%;
+                padding: 15px;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+            
+            .tile-image-title{
+                width: 100%;
+                padding: 15px;
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                color: #FFF;
+                background: rgba(0,0,0,0.2);
+                .text-shadow(0px 2px 5px rgba(0, 0, 0, 1));
+                .transition(all @app-default-transition-speed ease-in);
+                
+                .tile-title{
+                    color: #FFF;
+                    font-size: 14px;
+                    line-height: 26px;
+                    font-weight: 600;
+                    text-decoration: none;
+                }
+                p{margin-top: 0px; color: #F0F0F0;}
+                
+                &.tile-image-dir-top{
+                    bottom: auto;
+                    top: 0px;
+                }
+                
+                &.tile-image-title-hover{
+                    bottom: -200px;                    
+                }
+            }
+            
+            .tile-image-hover{
+                position: absolute;
+                left: 0px;
+                top: -300px;
+                background: rgba(0,0,0,0.5);
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                .transition(opacity 200ms ease-in);
+
+                .tile-image-container-vertical{
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    margin-top: -20px;
+                }
+                
+                &.tile-image-hover-light{
+                    background: rgba(255,255,255,0.9);
+                }
+            }
+            
+            &:hover{
+                .tile-image-title{
+                    background: rgba(0,0,0,0.4);
+                    
+                    &.tile-image-title-hover{
+                        bottom: 0px;
+                    }
+                    
+                    &.tile-image-title-hide-hover{
+                        bottom: -200px;
+                    }
+                }     
+                
+                .tile-image-hover{
+                    top: 0px;
+                    opacity: 1;
+                }
+            }
+            
+            &.tile-image-padding{
+                padding: 3px 3px 0px 3px;
+            }
+            &.tile-image-hover-grayscale{                
+                > img{
+                    -webkit-filter: grayscale(0);
+                    filter: grayscale(0);
+                    -webkit-transition: 300ms ease-in-out;
+                    transition: 300ms ease-in-out;
+                }
+                
+                &:hover{
+                    > img{
+                        -webkit-filter: grayscale(100%);
+                        filter: grayscale(100%);
+                    }
+                }
+            }
+        }
+        
+        > .tile-icon{
+            display: block;
+            float: left;
+            width: 100%;
+            text-align: center;
+            padding: 30px 0px 0px;
+            color: @app-tile-basic-sub-color;
+            
+            span[class^='icon-'],.fa{
+                display: block;
+                margin: 0px auto;
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                border: 1px solid @app-desing-border-color;                
+                text-align: center;
+                font-size: 40px;
+                .border-radius(50%);
+            }
+            .fa{
+                font-size: 42px;
+            }
+            
+            &.tile-icon-dashed{
+                span[class^='icon-'],.fa{
+                    border-style: dashed;                   
+                }
+            }
+            &.tile-icon-bg{
+                background: @app-tile-basic-bg-hover;
+                padding-top: 0px;
+                
+                span[class^='icon-'],.fa{
+                    border: 0px;
+                }
+            }
+        }
+        
+        .tile-content{
+            float: left;
+            width: 100%;
+            padding: 30px;
+
+            .tile-title{
+                display: block;
+                margin-bottom: 0px;
+                color: @app-tile-basic-title-color;
+                position: relative;                
+                
+                &.tile-title-underlined{
+                    margin-bottom: 15px;
+                    
+                    &:after{
+                        content: " ";
+                        position: absolute;
+                        top: 100%;
+                        left: 50%;
+                        margin-left: -25px;
+                        width: 50px;
+                        height: 2px;
+                        background: @app-design-main-color;
+                        margin-top: 8px;
+                    }
+                }
+                
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+                
+            }
+            a.tile-title{
+                font-size: 16px;
+                line-height: 26px;
+            }
+            
+            .tile-subtitle{
+                float: left;
+                width: 100%;
+                margin-bottom: 5px;
+                color: @app-tile-basic-sub-color;
+                text-transform: uppercase;
+                font-size: 90%;
+                
+                &.pull-left, &.pull-right{
+                    width: auto;
+                }
+                
+                .fa{
+                    font-size: 14px;
+                    margin-right: 5px;
+                }
+                
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+                &:first-child{
+                    margin-bottom: 0px;
+                }
+            }
+            
+            p{
+                &:first-child{
+                    margin-top: 0px;
+                }
+            }
+            
+            &.tile-content-condensed-bottom{
+                padding-bottom: 20px;
+            }
+            
+            &.tile-content-icon{
+                position: relative;
+                padding-left: 70px;
+                
+                .tile-icon{
+                    position: absolute;
+                    left: 15px;
+                    top: 20px;
+                    height: 40px;
+                    width: 40px;
+                    line-height: 40px;
+                    
+                    span[class^='icon-']{
+                        font-size: 40px;
+                    }
+                    .fa{
+                        font-size: 42px;
+                    }
+                }
+            }
+        }
+        
+        .tile-image + .tile-content{
+            padding-top: 20px;
+        }
+        
+        &.tile-basic-icon-top{
+            margin-top: 40px;
+            
+            .tile-icon{
+                padding-top: 0px;
+                margin-top: -40px;
+                
+                span[class^='icon-'],.fa{
+                    background: @app-tile-basic-bg;
+                    border-color: @app-design-base-bg;
+                    border-width: 5px;
+                    width: 90px;
+                    height: 90px;
+                }                
+            }
+            .tile-icon + .tile-content{
+                padding-top: 20px;
+            }
+        }
+        
+        &.tile-basic-shadow{
+            .box-shadow(0px 4px 20px 5px rgba(0,0,0,0.05));
+        }
+        &.tile-basic-hover-shadow{
+            .transition(all @app-default-transition-speed linear);
+            
+            &:hover{
+                .box-shadow(0px 4px 20px 5px rgba(0,0,0,0.05));
+            }
+        }
+        &.tile-basic-bordered{
+            border: 1px solid @app-desing-border-color;
+        }
+        &.tile-transparent{
+            background: transparent;
+            border: 0px;
+        }
+    }
+    
+}
