@@ -3,3 +3,5 @@
 
 # shellcheck source=/dev/null
 [ -r "script/bootstrap.sh" ] && source "script/bootstrap.sh"
+
+restview "${FILE_README}"
