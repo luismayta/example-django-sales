@@ -5,7 +5,7 @@
     "license": "ISC",
     "dependencies": {
         "gulp": "^3.9.1",
-        "gulp-watch": "^4.3.3",
+        "gulp-watch": "^4.3.11",
         "browser-sync": "^2.8.0",
         "gulp-rigger": "^0.5.8",
         "gulp-less": "^3.0.3",
