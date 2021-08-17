@@ -8,7 +8,7 @@
         "gulp-watch": "^4.3.11",
         "browser-sync": "^2.27.5",
         "gulp-rigger": "^0.5.8",
-        "gulp-less": "^3.0.3",
+        "gulp-less": "^3.5.0",
         "gulp-rimraf": "^0.2.2",
         "gulp-sourcemaps": "^1.5.2"
     },
