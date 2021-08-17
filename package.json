@@ -10,7 +10,7 @@
         "gulp-rigger": "^0.5.8",
         "gulp-less": "^3.5.0",
         "gulp-rimraf": "^0.2.2",
-        "gulp-sourcemaps": "^1.5.2"
+        "gulp-sourcemaps": "^1.12.1"
     },
     "devDependencies": {
         "gulp-clean-css": "^2.3.2",
