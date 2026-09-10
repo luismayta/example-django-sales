@@ -2,7 +2,7 @@ dj-database-url==0.5.0
 Django==1.11.29
 django-model-utils==2.6.1
 djangorestframework==3.15.2
-psycopg2==2.9.3
+psycopg2==2.9.13
 pytz==2017.3
 PyYAML==3.12
 requests==2.32.2
